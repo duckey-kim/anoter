@@ -2,7 +2,8 @@
 body{
   display:grid;
   grid-template:"header header header"
-  "nav  nav nav"
+  "nav  nav nav" 2em
+  "subTitle subTitle subTitle"
   "main main main" 
   "footer footer footer"
 }
@@ -12,7 +13,7 @@ nav{ grid-area:nav;}
 section{ grid-area:section;}
 footer{ grid-area:footer;}
 .main{ grid-area:main;}
-
+#subTitle{ grid-area:subTitle;}
 
 /*header 부분*/
 
@@ -27,6 +28,7 @@ a {
 }
 
 header p {
+  font-size:1.6em;
   font-weight: bold;
   position: relative;
   transform: translateX(10px);
@@ -37,45 +39,50 @@ header .HomeImage {
   justify-self: center;
   align-self: center;
   font-style: italic;
-  font-size: 2em;
+  font-size: 2.8em;
   font-weight: bold;
 }
 
 header .siteA {
   font-weight: 600;
   justify-self: end;
+  font-size:1.6em;
 }
 
-#nonebox {
-  width: 100%;
-  height: 10px;
-  background: tomato;
-}
 
 
 /*nav* 부분*/
 
 .menuContainer {
+  height: 2em;
   display: grid;
-  background: yellow;
+  background: black;
   grid-template-columns: 3fr 1fr;
+  align-content:end;
 }
 
 .menuContainer .leftContainer {
-  background: blue;
+  background: yellow;
   display: flex;
   justify-content: space-around;
 }
 
 .menuContainer .rightContainer {
-  background: red;
+  background: yellowgreen;
   display: flex;
   justify-content: space-between;
   
 }
 
 nav li{
-  font-size: 16px;
+  font-size: 1.4em;
+}
+#subTitle {
+  display:flex;
+  height: 1.6em;
+  background: rgb(155, 52, 34);
+  font-size:1.5em;
+  align-items:center;
 }
 
 
@@ -90,6 +97,8 @@ nav li{
 section{
 width: 80%;
 height: 600px;
+justify-self:start;
+align-self:start;
 }
 
 
@@ -101,4 +110,13 @@ height: 300px;
 background:darkorange;
 
 
+}
+
+footer{
+  display:flex;
+  justify-content:center;
+  font-style:italic;
+  font: small-caps  1em sans-serif;
+  opacity:0.4;
+  
 }
