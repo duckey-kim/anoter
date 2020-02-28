@@ -1,11 +1,13 @@
-/*body부분*/
+/*body부분 grid활용 구역분배*/
+
 body{
   display:grid;
   grid-template:"header header header"
   "nav  nav nav" 2em
   "subTitle subTitle subTitle"
   "main main main" 
-  "footer footer footer"
+  "footer footer footer";
+  background:#888;
 }
 header{ grid-area:header;}
 nav{ grid-area:nav;}
@@ -19,17 +21,18 @@ footer{ grid-area:footer;}
 
 header {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  background: darkgray;
+  grid-template-columns: 1fr 1fr 1fr;
+  
 }
 
 a {
   text-decoration: none;
+  color:black;
 }
 
 header p {
   font-size:1.6em;
-  font-weight: bold;
+  
   position: relative;
   transform: translateX(10px);
   align-self: center;
@@ -38,9 +41,9 @@ header p {
 header .HomeImage {
   justify-self: center;
   align-self: center;
-  font-style: italic;
+  font-style: sans-serif;
   font-size: 2.8em;
-  font-weight: bold;
+  
 }
 
 header .siteA {
@@ -51,54 +54,87 @@ header .siteA {
 
 
 
-/*nav* 부분*/
+/*nav 부분 menuContainer*/
 
 .menuContainer {
   height: 2em;
   display: grid;
-  background: black;
+  background: #888;
   grid-template-columns: 3fr 1fr;
   align-content:end;
+  border-bottom:4px solid black;
 }
 
 .menuContainer .leftContainer {
-  background: yellow;
+  
   display: flex;
   justify-content: space-around;
 }
 
 .menuContainer .rightContainer {
-  background: yellowgreen;
+
   display: flex;
   justify-content: space-between;
   
 }
 
 nav li{
+
   font-size: 1.4em;
 }
 #subTitle {
+  margin-top:10px;
   display:flex;
   height: 1.6em;
-  background: rgb(155, 52, 34);
+ 
   font-size:1.5em;
   align-items:center;
 }
 
 
+/*main부분 section과 asdie*/
+
 .main{
   display:flex;
   justify-content:space-between;
-  
-  
+  font-size:1.25em;
+  padding :10px;
 }
   
 
-section{
+.main section{
 width: 80%;
 height: 600px;
-justify-self:start;
-align-self:start;
+}
+
+
+.mainSection{
+  display:grid;
+  grid-template:1fr 1fr /1fr 1fr;
+}
+.mainSection div{
+  margin:10px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+ white-space:nowrap;
+  
+}
+.mainSection div h1{
+  font-weight:bold;
+  border-bottom:1px solid darkgray;
+}
+.mainSection div p{
+  width:70%;
+  float:left;
+  overflow:hidden;
+  text-overflow:ellipsis;
+ white-space:nowrap;
+}
+
+.mainSection div span{
+font-size:0.8em;
+  float:right;
+  font-weight:200;
 }
 
 
@@ -108,9 +144,13 @@ right:0px;
 width: 100px;
 height: 300px;
 background:darkorange;
+border-radius:10px;
 
 
 }
+
+
+/*footer 부분*/
 
 footer{
   display:flex;
