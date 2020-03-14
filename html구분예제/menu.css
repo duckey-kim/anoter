@@ -3,9 +3,10 @@
 body {
     display: grid;
     grid-template: "header header header"
-        "nav  nav nav"2em "subTitle subTitle subTitle"
+        "nav  nav nav" 2em 
+        "subTitle subTitle subTitle"
         "main main main"
-        "footer footer footer";
+        "footer footer footer" 200px; 
     background: #888;
 }
 
@@ -16,23 +17,39 @@ header {
 nav {
     grid-area: nav;
 }
-
-section {
-    grid-area: section;
+#subTitle {
+    grid-area: subTitle;
 }
-
 footer {
     grid-area: footer;
 }
 
-.main {
+.Main {
     grid-area: main;
 }
 
-#subTitle {
-    grid-area: subTitle;
-}
 
+
+/*a 태그 설정*/
+a:link {
+    color:black;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color:black;
+    text-decoration: none;
+  }
+
+/* li태그 점 없애기*/
+li{
+    list-style:none;
+}
 /*header 부분*/
 
 header {
@@ -105,7 +122,6 @@ nav .menuContainer li {
     margin-top: 10px;
     display: flex;
     height: 1.6em;
-
     font-size: 1.5em;
     align-items: center;
 }
@@ -123,6 +139,7 @@ nav .menuContainer li {
 
 
 .Main section {
+    display:block;
     width: 79%;
     height: 1000px;
 }
@@ -146,19 +163,29 @@ nav .menuContainer li {
 
 
 /* menu 의 section부분 */
-
-
+.Main section .board a{
+   
+    width: 80%;   
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.Main section .board span{
+  float:right;
+  margin-right:5px;
+    text-decoration:none;
+    
+}
 
 
 
 /*footer 부분*/
 
 footer {
-    height: 200px;
     display: flex;
     justify-content: center;
     font-style: italic;
     font: small-caps 1em sans-serif;
     opacity: 0.4;
-
 }

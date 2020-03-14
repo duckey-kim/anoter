@@ -3,15 +3,15 @@
 body {
   display: grid;
   grid-template: "header header header"
-    "nav  nav nav"2em 
-    "subTitle subTitle subTitle"
-    "main main main" 
-    "footer footer footer";
+    "nav  nav nav"2em "subTitle subTitle subTitle"
+    "main main main"
+    "footer footer footer"200px;
   background: #888;
 }
 
 header {
   grid-area: header;
+
 }
 
 nav {
@@ -26,12 +26,29 @@ footer {
   grid-area: footer;
 }
 
-.main {
+.Main {
   grid-area: main;
 }
 
 #subTitle {
   grid-area: subTitle;
+}
+
+
+/*a 태그 설정*/
+a:link {
+  color:black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color:black;
+  text-decoration: none;
 }
 
 /*header 부분*/
@@ -40,12 +57,17 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
+
 }
 
 a {
   text-decoration: none;
   color: black;
+
+
 }
+
+
 
 header p {
   font-size: 1.6em;
@@ -55,13 +77,20 @@ header p {
   align-self: center;
 }
 
+header p a {
+  color: violet;
+}
+
 header .HomeImage {
   justify-self: center;
   align-self: center;
   font-style: sans-serif;
   font-size: 2.8em;
 
+
 }
+
+
 
 header .siteA {
   font-weight: 600;
@@ -96,8 +125,9 @@ nav .menuContainer .rightContainer {
 }
 
 nav .menuContainer li {
-
+  list-style: none;
   font-size: 1.4em;
+  font-style: sans-serif;
 }
 
 /* subTitle 부분*/
@@ -114,12 +144,12 @@ nav .menuContainer li {
 
 
 /* 기본 윂페이지에서 section과 asdie 분활 */
-.Main{
+.Main {
   display: flex;
   justify-content: space-between;
   font-size: 1.25em;
   padding: 10px;
-  position:relative;
+  position: relative;
 }
 
 
@@ -129,18 +159,19 @@ nav .menuContainer li {
 }
 
 
-.Main .asideWrap{
+.Main .asideWrap {
   width: 19%;
- height: 600px;
-  display:grid;
-  position:fixed;
-  right:0;
-  
-  
+  height: 600px;
+  display: grid;
+  position: fixed;
+  right: 0;
+
+
 }
-.Main aside{
-background:tomato;
-margin: 2px;
+
+.Main aside {
+  background: tomato;
+  margin: 2px;
 }
 
 
@@ -160,8 +191,8 @@ margin: 2px;
 
 }
 
-.mainSection .menuboard .boardTitle{
-  display:block;
+.mainSection .menuboard .boardTitle {
+  display: block;
   font-weight: bold;
   border-bottom: 1px solid darkgray;
 }
@@ -172,8 +203,8 @@ margin: 2px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  
-  
+
+
 }
 
 .mainSection div span {
@@ -181,18 +212,18 @@ margin: 2px;
   float: right;
   font-weight: 200;
 }
-.mainSection div button{
- float:right;
-  background:darkgoldenrod;
-  border-radius:5px;
-  
+
+.mainSection div button {
+  float: right;
+  background: darkgoldenrod;
+  border-radius: 5px;
+
 }
 
 
 /*footer 부분*/
 
 footer {
-  height: 200px;
   display: flex;
   justify-content: center;
   font-style: italic;
