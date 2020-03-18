@@ -5,120 +5,226 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MomePage</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{ % static " css/base.css" % }">
+  <link rel="stylesheet" type="text/css" href="{ % block extrastyle % }{ % endblock % }">
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+
+
+
+  <title>HomePage</title>
 </head>
 
 
 <body>
+  <div class="container-fluid">
+    <div class="row">
 
-
-  <div class="jumbotron">
-
-    <a id="HomeLink" href="#">Home Sweet Home</a>
-    <div>Duckey</div>
-    <div>2020.3.1</div>
-    <div>version 0.1</div>
-  </div>
-
-  <nav>
-    <div class="container">
-      <div class="row">
-      <ul class="nav nav-pills">
-        <li><a href="menu1index.html">메뉴 1</a></li>
-        <li><a href="menu2index.html">메뉴 2</a></li>
-        <li><a href="menu3index.html">메뉴 3</a></li>
-        <li><a href="menu4index.html">메뉴 4</a></li>
-      </ul>
-      <ul class="nav nav-pills">
-        <li><a href="">로그인</a></li>
-        <li><a href="">회원가입</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div id="subTitle">Blog!!!</div>
-  <div class="Main">
-    <section class="mainSection">
-      <div class="menuboard">
-        <div class="boardTitle"><a href="menu1index.html">Menu1 board</a></div>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 코로나 대위기.ㅠ</p>
-        <span>2020.02.28</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 내가사는 동네는 코로나 없나..</p>
-        <span>2020.02.27</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 니가 사는 그집</p>
-        <span>2020.02.18</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 정말 왈왈소리다</p>
-        <span>2020.01.05</span>
-        <button><a href="menu1index.html">더보기</a></button>
+      <div class="col-sm-6">
+        <ul class="nav nav-pills">
+          <li><a href="#">Nav 1</a></li>
+          <li><a href="#">Nav 2</a></li>
+          <li><a href="#">Nav 3</a></li>
+          <li><a href="#">Nav 4</a></li>
+        </ul>
       </div>
-      <div class="menuboard">
-        <div class="boardTitle"><a href="menu2index.html">Menu2 board</a></div>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 코로나 대위기.ㅠ</p>
-        <span>2020.02.28</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 내가사는 동네는 코로나 없나..</p>
-        <span>2020.02.27</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 니가 사는 그집</p>
-        <span>2020.02.18</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 정말 왈왈소리다</p>
-        <span>2020.01.05</span>
-        <button><a href="menu2index.html">더보기</a></button>
-      </div>
-      <div class="menuboard">
-        <div class="boardTitle"><a href="menu3index.html">Menu3 board</a></div>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 코로나 대위기.ㅠ</p>
-        <span>2020.02.28</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 내가사는 동네는 코로나 없나..</p>
-        <span>2020.02.27</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 니가 사는 그집</p>
-        <span>2020.02.18</span>
-        <p>아무거나 쓰고있는중 여러분도 아무거나 읽고 정말 왈왈소리다</p>
-        <span>2020.01.05</span>
-        <button><a href="menu3index.html">더보기</a></button>
-      </div>
-      <div class="menuboard">
-        <div class="boardTitle"><a href="menu4index.html">Menu4 board</a></div>
-        <p><a href="#">아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 코로나 대위기.ㅠ</a></p>
-        <span>2020.02.28</span>
-        <p><a href="#">아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 내가사는 동네는 코로나 없나..</a></p>
-        <span>2020.02.27</span>
-        <p><a href="#">아무거나 쓰고있는중 여러분도 아무거나 읽고 있는중 니가 사는 그집</a></p>
-        <span>2020.02.18</span>
-        <p><a href="#">아무거나 쓰고있는중 여러분도 아무거나 읽고 정말 왈왈소리다</a></p>
-        <span>2020.01.05</span>
-        <button><a href="menu4index.html">더보기</a></button>
-      </div>
-    </section>
-    <div class="asideWrap">
-      <aside class="rightAd">
-        <p>광고1</p>
-      </aside>
-      <aside class="rightAd">
-        <p>광고2</p>
-      </aside>
     </div>
   </div>
-  <footer>
-    <span>Copyright(c) 2020 Duckey.Kim all rights reserved.</span>
-    <div class="nonebax"></div>
 
+  <div class="jumbotron container-fluid">
+
+    <h1>Welcome and Enjoy</h1>
+    <div class="text-right">
+      <small>version 1.0</small>
+    </div>
+
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr>
+              <td colspan="3" class="alert alert alert-info"><a href="">Menu1</a></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="col-sm-6">
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr>
+              <td colspan="3" class="alert alert alert-info"><a href="">Menu2</a></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="col-sm-6">
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr>
+              <td colspan="3" class="alert alert alert-info"><a href="">Menu3</a></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="col-sm-6">
+        <table class="table table-borderless table-hover">
+          <thead>
+            <tr>
+              <td colspan="3" class="alert alert alert-info"><a href="">Menu</a></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">게시글123123123123123123</th>
+              <td>작성자</td>
+              <td class="text-right">
+                작성날짜
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <footer class="text-center">
+    <div class="text-monospace">Copyright(c) 2020 Duckey.Kim all rights reserved.
+    
+    <a href="mailto:#">duckey-kdh@google.com</a></div></div>
 
   </footer>
-
-
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
-
+<p class="text-monospace">Duckeykim</p>
+<p class="font-italic">Duckeykim</p>
+ 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 </body>
 
