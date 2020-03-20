@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300' rel='stylesheet'
+    type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{ % static " css/base.css" % }">
   <link rel="stylesheet" type="text/css" href="{ % block extrastyle % }{ % endblock % }">
@@ -21,6 +22,8 @@
 
 
 <body>
+
+  <!-- nav top set-->
   <div class="container">
     <div class="row">
 
@@ -34,65 +37,72 @@
       </div>
     </div>
   </div>
-
+  <!-- nav top end -->
+  <!-- jumbotron set -->
   <div class="jumbotron container">
     <h1 class="text-center">Welcome and Enjoy</h1>
     <div class="text-right">
       <small>version 1.0</small>
     </div>
   </div>
-<!-- header end -->
-
+  <!-- jumbotron end -->
+  
+  
+  <!-- board container set -->
   <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <table class="table table-borderless table-hover">
-          <thead>
-            <tr>
-              <td colspan="3" class="alert alert alert-info"><a href="">Menu1</a></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">게시글123123123123123123</th>
-              <td>작성자</td>
-              <td class="text-right">
-                작성날짜
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">게시글123123123123123123</th>
-              <td>작성자</td>
-              <td class="text-right">
-                작성날짜
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">게시글123123123123123123</th>
-              <td>작성자</td>
-              <td class="text-right">
-                작성날짜
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">게시글123123123123123123</th>
-              <td>작성자</td>
-              <td class="text-right">
-                작성날짜
-              </td>
-            </tr>
-          </tbody>
-        </table>
 
-      </div>
-      
+    <div class="col-sm-12">
+      <table class="table table-borderless table-hover">
+        <thead>
+          <tr>
+            <td colspan="4" class="alert alert alert-info"><a href="">Menu1</a></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" colspan="2">게시글123123123123123123</th>
+            <td class="text-right">작성자</td>
+            <td class="text-right">
+              작성날짜
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" colspan="2">게시글123123123123123123</th>
+            <td class="text-right">작성자</td>
+            <td class="text-right">
+              작성날짜
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" colspan="2">게시글123123123123123123</th>
+            <td class="text-right">작성자</td>
+            <td class="text-right">
+              작성날짜
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" colspan="2">게시글123123123123123123</th>
+            <td class="text-right">작성자</td>
+            <td class="text-right">
+              작성날짜
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
+    </div>
+  </div>
+  <!-- board container end -->
 
-
+  <!-- footer set -->
   <footer class="text-center">
     <div class="text-monospace">Copyright(c) 2020 Duckey.Kim all rights reserved.
-    <a href="mailto:#" class="font-italic">duckey-kdh@google.com</a></div></div>
+    <a href="mailto:#">duckey-kdh@google.com</a></div></div>
   </footer>
+
+  <!-- footer end -->
+
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
