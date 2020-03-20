@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="{ % static " css/base.css" % }">
   <link rel="stylesheet" type="text/css" href="{ % block extrastyle % }{ % endblock % }">
-
+  <link rel="stylesheet" href="./nav.css">
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
 
@@ -46,46 +46,63 @@
     </div>
   </div>
   <!-- jumbotron end -->
-  
-  
-  <!-- board container set -->
-  <div class="container">
 
-    <div class="col-sm-12">
+  <!-- board container set -->
+  <div class="container board-container">
+
+    <div class="col-sm-12 board-container">
       <table class="table table-borderless table-hover">
         <thead>
-          <tr>
-            <td colspan="4" class="alert alert alert-info"><a href="">Menu1</a></td>
+          <tr class="alert alert-info">
+            <td colspan="3"scope="col">제목</td>
+            <td scope="col">글쓴이</td>
+            <td scope="col">공감수</td>
+            <td scope="col">등록일</td>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row" colspan="2">게시글123123123123123123</th>
-            <td class="text-right">작성자</td>
-            <td class="text-right">
-              작성날짜
-            </td>
+            <td colspan="3"scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
           </tr>
           <tr>
-            <th scope="row" colspan="2">게시글123123123123123123</th>
-            <td class="text-right">작성자</td>
-            <td class="text-right">
-              작성날짜
-            </td>
+            <td colspan="3"scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          
+          <tr>
+            <td colspan="3"scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
           </tr>
           <tr>
-            <th scope="row" colspan="2">게시글123123123123123123</th>
-            <td class="text-right">작성자</td>
-            <td class="text-right">
-              작성날짜
-            </td>
+            <td colspan="3"scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
           </tr>
           <tr>
-            <th scope="row" colspan="2">게시글123123123123123123</th>
-            <td class="text-right">작성자</td>
-            <td class="text-right">
-              작성날짜
-            </td>
+            <td colspan="3"scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="3"scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="3"scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
           </tr>
         </tbody>
       </table>
@@ -97,7 +114,8 @@
   <!-- footer set -->
   <footer class="text-center">
     <div class="text-monospace">Copyright(c) 2020 Duckey.Kim all rights reserved.
-    <a href="mailto:#">duckey-kdh@google.com</a></div></div>
+      <a href="mailto:#">duckey-kdh@google.com</a></div>
+    </div>
   </footer>
 
   <!-- footer end -->
