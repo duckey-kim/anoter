@@ -2,102 +2,170 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="{ % static " css/base.css" % }">
-  <link rel="stylesheet" type="text/css" href="{ % block extrastyle % }{ % endblock % }">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300' rel='stylesheet'
+    type='text/css'>
 
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-
-
-  <title>HomePage</title>
+  <link rel="stylesheet" href="./nav.css">
+  <title class="html-name">Nav 3</title>
 </head>
 
 
 <body>
-  <div class="container">
+
+  <!-- nav top set-->
+  <div class="container-fluid">
     <div class="row">
 
-      <div class="col-sm-6">
-        <ul class="nav nav-pills">
-          <li><a href="nav1.html">Nav 1</a></li>
-          <li><a href="nav2.html">Nav 2</a></li>
-          <li><a href="nav3.html">Nav 3</a></li>
-          <li><a href="nav4.html">Nav 4</a></li>
-        </ul>
+      <div class="col-sm-10">
+        <nav class="nav nav-pills ">
+          <a class="nav-link" href="nav1.html">Nav 1</a>
+          <a class="nav-link" href="nav2.html">Nav 2</a>
+          <a class="nav-link" href="nav3.html">Nav 3</a>
+          <a class="nav-link" href="nav4.html">Nav 4</a>
+        </nav>
       </div>
     </div>
   </div>
-
-  <div class="jumbotron container">
-    <h1 class="text-center">Welcome and Enjoy</h1>
+  <!-- nav top end -->
+  <!-- jumbotron set -->
+  <div class="jumbotron container-fluid">
+    <h1 class="text-center text-monospace">Welcome and Enjoy</h1>
     <div class="text-right">
       <small>version 1.0</small>
     </div>
   </div>
-<!-- header end -->
+  <!-- jumbotron end -->
 
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <table class="table table-borderless table-hover">
-          <thead>
-            <tr>
-              <td colspan="3" class="alert alert alert-info"><a href="">Menu1</a></td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">게시글123123123123123123</th>
-              <td>작성자</td>
-              <td class="text-right">
-                작성날짜
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">게시글123123123123123123</th>
-              <td>작성자</td>
-              <td class="text-right">
-                작성날짜
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">게시글123123123123123123</th>
-              <td>작성자</td>
-              <td class="text-right">
-                작성날짜
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">게시글123123123123123123</th>
-              <td>작성자</td>
-              <td class="text-right">
-                작성날짜
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <!-- board container set -->
+  <div class="container-fluid board-container">
 
-      </div>
-      
+    <div class="col-sm-12 board-container">
+      <table class="table table-borderless table-hover">
+        <thead>
+          <tr class="alert alert-info">
+            <td colspan="4" scope="col">제목</td>
+            <td scope="col">글쓴이</td>
+            <td scope="col">공감수</td>
+            <td scope="col">등록일</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
 
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
+          <tr>
+            <td colspan="4" scope="row">게시글11123123123123123123123</td>
+            <td>글쓴이</td>
+            <td>공감수</td>
+            <td>등록일</td>
+          </tr>
 
+        </tbody>
+      </table>
 
-  <footer class="text-center">
-    <div class="text-monospace">Copyright(c) 2020 Duckey.Kim all rights reserved.
-    <a href="mailto:#">duckey-kdh@google.com</a></div></div>
-  </footer>
+    </div>
+  </div>
+  <!-- board container end -->
+ <!-- pagination set -->
+ <ul class="pagination justify-content-center">
+  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+<!-- pagination end -->
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- footer set -->
+<footer class="d-flex justify-content-center align-items-end" style="height:10em;">
+  <div class="text-monospace">Copyright(c) 2020 Duckey.Kim all rights reserved.
+    <div class="text-center"><a href="mailto:#">duckey-kdh@google.com</a></div>
+  </div>
+</footer>
 
+<!-- footer end -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+
+  
 </body>
 
 </html>

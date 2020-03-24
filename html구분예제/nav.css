@@ -2,3 +2,12 @@
     padding-right:0;
     padding-left:0;
 }
+
+a{
+    text-decoration:none !important;
+    color:darkgray;
+}
+
+nav a {
+    color:#212529;
+}
