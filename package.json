@@ -1,0 +1,11 @@
+{
+  "name": "Duck-Craft",
+  "version": "0.0.1",
+  "description": "hello",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: there is no Test\" && exit 1"
+  },
+  "author": "Duckey Kim"
+}
