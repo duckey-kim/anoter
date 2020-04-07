@@ -1,11 +1,26 @@
 {
-  "name": "Duck-Craft",
+  "name": "duck-craft",
   "version": "0.0.1",
   "description": "hello",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: there is no Test\" && exit 1"
+    "test": "echo \\\"Error: there is no Test\\\" && exit 1"
   },
-  "author": "Duckey Kim"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duckey-kim/Duck-Craft.git"
+  },
+  "keywords": [
+    "web"
+  ],
+  "author": "Duckey Kim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duckey-kim/Duck-Craft/issues"
+  },
+  "homepage": "https://github.com/duckey-kim/Duck-Craft#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }

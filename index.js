@@ -1,38 +1,11 @@
-const http = require("http");
-const fs = require("fs");
-
-const index = fs.readFileSync("pages/index.html");
-const host = "127.0.0.1";
+const express = require("express");
+const app = express()
 const port = 3000;
-const url = require("url");
 
-const server = http.createServer((req, res) => {
-  if (req.url == "/") {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "plain/text");
-    res.end("Hello My App");
-  } else if (req.url == "/a") {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/html");
-    console.log(req.url + `is received`);
-    res.end(index);
-  } else {
-    let req_path = url.parse(req.url).pathname;
-
-    console.log(req_path);
-    fs.readFile("pages/" + req_path.substr(1) + ".html", (err, data) => {
-      if (err) {
-        res.statusCode = 500;
-        console.log(err);
-        res.end();
-      } else {
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "text/html");
-        res.end(data);
-      }
-    });
-  }
+app.get('/', (req, res) => {
+  res.send("Hi");
 });
-server.listen(port, host, () => {
-  console.log(`server is running at http://${host}:${port}/`);
+
+app.listen(port, () => {
+  console.log(`server is running at http://localhost:${port}/`);
 });
