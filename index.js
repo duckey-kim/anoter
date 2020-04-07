@@ -1,20 +1,22 @@
-const http = require('http');
-const fs = require('fs');
-
+const http = require("http");
+const fs = require("fs");
 
 const index = fs.readFileSync("pages/index.html");
 const host = "127.0.0.1";
 const port = 3000;
-const url = require('url');
+const url = require("url");
 
 const server = http.createServer((req, res) => {
-  if (req.url == '/') {
+  if (req.url == "/") {
     res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
+    res.setHeader("Content-Type", "plain/text");
+    res.end("Hello My App");
+  } else if (req.url == "/a") {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/html");
     console.log(req.url + `is received`);
     res.end(index);
   } else {
-
     let req_path = url.parse(req.url).pathname;
 
     console.log(req_path);
@@ -25,9 +27,8 @@ const server = http.createServer((req, res) => {
         res.end();
       } else {
         res.statusCode = 200;
-        res.setHeader('Content-Type', 'text/html');
+        res.setHeader("Content-Type", "text/html");
         res.end(data);
-
       }
     });
   }
