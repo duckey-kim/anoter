@@ -15,18 +15,18 @@ const server = http.createServer((req, res) => {
     // let request_path= req.url.slice(1,req.url.length);
     // console.log(request_path);
     let req_path = url.parse(req.url).pathname;
-    // req_path=> /***
-    // console.log(req_path);
+
+    console.log(req_path);
     fs.readFile(req_path.substr(1) + '.html', (err, data) => {
       if (err) {
         res.statusCode = 500;
-        console.log('err');
+        console.log(err);
         res.end();
       } else {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
         res.end(data);
-        console.log('success');
+
       }
     });
   }
