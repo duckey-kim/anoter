@@ -13,7 +13,7 @@ HTML과 CSS의 기본 지식을 쌓은 후 `bootstrap`을 사용하여 4개의 �
 ## Installation
 
 필요한 자원들은 인터넷 또는 npm을 사용하여 다운받을 수 있다.  
-NodeJs : 인터넷으로 다운로드[NodeJs](https://nodejs.org/ko/download/)
+NodeJs : 인터넷으로 다운로드 [NodeJs](https://nodejs.org/ko/download/)  
 Bootstrap : 인터넷으로 다운로드 [Bootstrap](https://getbootstrap.com/docs/4.4/getting-started/download/)
 
 ```sheel sciprt
