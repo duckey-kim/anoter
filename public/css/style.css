@@ -2,3 +2,16 @@ a {
   text-decoration: none !important;
 
 }
+
+table {
+  table-layout: fixed;
+}
+
+table th,
+table td {
+  overflow: hidden;
+}
+
+body {
+  font-size: 14px;
+}
