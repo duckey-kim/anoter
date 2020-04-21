@@ -1,6 +1,5 @@
 a {
   text-decoration: none !important;
-
 }
 
 table {
@@ -12,7 +11,9 @@ table td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-
+}
+table .card {
+  white-space: normal;
 }
 
 body {
