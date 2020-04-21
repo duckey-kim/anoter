@@ -24,6 +24,13 @@ app.get("/boards/gossip", (req, res) => {
 app.get("boards/humor/posts/new", (req, res) => {
   res.render("new_post");
 });
+app.get("boards/gossip/posts/new", (req, res) => {
+  res.render("new_post");
+});
+
+app.get("boards/gossip/posts/new", (req, res) => {
+  res.render("new_post");
+});
 app.get("/write", (req, res) => {
   res.render("write");
 });
