@@ -15,20 +15,14 @@ app.use(express.static(__dirname));
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.get("/nav1", (req, res) => {
-  res.render("nav1");
+app.get("/boards/humor", (req, res) => {
+  res.render("board1");
 });
-app.get("/nav2", (req, res) => {
-  res.render("nav2");
+app.get("/boards/gossip", (req, res) => {
+  res.render("board2");
 });
-app.get("/nav3", (req, res) => {
-  res.render("nav3");
-});
-app.get("/nav4", (req, res) => {
-  res.render("nav4");
-});
-app.get("/signUp", (req, res) => {
-  res.render("signUp");
+app.get("boards/humor/posts/new", (req, res) => {
+  res.render("new_post");
 });
 app.get("/write", (req, res) => {
   res.render("write");
