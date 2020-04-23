@@ -62,13 +62,12 @@
           <tbody>
             <tr>
               <th scope="column" name="postTitle" colspan="3" style="width: 20%;">
-                postTitle................
+                postTitle
               </th>
               <td scope="column" name="postUser" style="width: 20%;">
-                NickName
+                postUser
               </td>
-              <td scope="column" name="postDate" style="width: 20%;">
-                20.02.02
+              <td scope="column" name="postDate" style="width: 20%;">postDate
               </td>
             </tr>
             <tr>
@@ -110,7 +109,7 @@
         </table>
       </div>
       <div class="editButtonWrap" name="viewer">
-        <div type=" button" id="editButton" onclick="location.href='/boards/humor/posts?action=edit_post'"
+        <div type=" button" id="editButton" onclick="location.href='/boards/:category/posts?action=edit_post'"
           class="btn btn-primary btn-sm float-right">
           edit
         </div>
