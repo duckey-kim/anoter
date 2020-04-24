@@ -14,7 +14,7 @@ app.use("/public", express.static(__dirname + "/public"));
 
 // "/"request "duck-craft/views/"  index.html render
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("boards/index");
 });
 app.get("/signUp", (req, res) => {
   res.render("boards/signUp");
