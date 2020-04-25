@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <%- include ('../../public/layout/head') %>
+</head>
+
+<body>
+  <!-- nav top set -->
+  <%- include ('../../public/layout/nav') %>
+  <!-- nav top end -->
+
+  <!-- jumbotron set -->
+
+  <%- include ('../../public/layout/jumbotron') %>
+  <!-- jumbotron end -->
+
+  <!-- board container set -->
+  <div class="container">
+    <form method="POST">
+      <div class="form-group row mb-0">
+        <div class="col-sm-12">
+          <label for="colFormLabelSm" class="col-xs-1 col-form-label col-form-label-sm">제목</label>
+          <div class="col-xs-8">
+            <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="제목을 작성해주세요" />
+          </div>
+          <div class="btn btn-info col-xs-1 btn-sm">
+            <label class="mb-0" for="ex_file">파일추가</label>
+            <input type="file" style="display: none;" id="ex_file" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="colForText" class="col-xs-1 col-form-label col-form-label-sm">내용</label>
+          <textarea class="form-control col-sm-12" id="colForText" rows="4"></textarea>
+        </div>
+      </div>
+    </form>
+
+    <div type=" button" id="saveButton" onclick="alert('수정하겠습니다!')" class="btn btn-primary btn-sm float-right">
+      Save
+    </div>
+
+    <div type=" button" id="cancleButton" onclick="alert('글을 저장하지 않겠습니까?')"
+      class="btn btn-primary btn-sm float-right mr-2">
+      Cancle
+    </div>
+
+    <!-- board container end -->
+    <div class="forSpace" style="height: 20px;"></div>
+    <div class="forSpace" style="height: 20px;"></div>
+
+    <!-- footer set -->
+    <%- include ('../../public/layout/footer') %>
+  </div>
+  <!-- footer end -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

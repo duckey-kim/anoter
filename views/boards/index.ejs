@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ('../../public/layout/head') %>
+</head>
+
+<body>
+  <!-- nav top set -->
+
+  <%- include ('../../public/layout/nav') %>
+
+
+  <!-- nav top end -->
+
+  <!-- jumbotron set -->
+  <%- include ('../../public/layout/jumbotron') %>
+
+  <!-- jumbotron end -->
+
+  <!-- home board set -->
+  <div class="container">
+    <div class="table-responsive-xl">
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-borderless table-hover">
+            <thead>
+              <tr>
+                <td colspan="3" class="alert alert-info">
+                  <a href="/boards/humor">Humor</a>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
+                  <%=postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class=" table table-borderless table-hover ">
+            <thead>
+              <tr>
+                <td colspan="3" class="alert alert-info">
+                  <a href="/boards/gossip">Gossip</a>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+              <tr>
+                <td scope="row" onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
+                  <%= postTitle%></td>
+                <td><%= postUser%></td>
+                <td>
+                  <%= postDate%>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- home board end -->
+
+    <!-- footer set -->
+    <%- include ('../../public/layout/footer') %>
+  </div>
+
+  <!-- footer end -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
