@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
+var expressLayouts = require('express-ejs-layouts');
 // 필요한 module require
 
 app.set("view engine", "ejs");
@@ -11,6 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
+app.use(expressLayouts);
 
 
 //view engine을 ejs로 설정

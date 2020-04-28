@@ -1,72 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center">Sign UP</h4>
+    <form name="signForm" method="POST" action="/signUp/user" onsubmit="return check()">
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input name="userNick" class="form-control" placeholder="Nick Name" type="text">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+        </div>
+        <input name="userEmail" class="form-control" placeholder="Email address" type="email">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input class="form-control" name="userPassword" placeholder="Create password" type="password">
+      </div> <!-- form-group// -->
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input class="form-control" name="repeatPassword" placeholder="Repeat password" type="password">
+      </div> <!-- form-group// -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Sign Up </button>
+      </div> <!-- form-group// -->
 
-<head>
-  <%- include ('../../public/layout/head') %>
-</head>
-
-
-<%- include ('../../public/layout/function') %>
-
-<body>
-
-
-  <!-- nav top set-->
-  <%- include ('../../public/layout/nav') %>
-
-
-  <!-- nav top end -->
-
-  <!-- jumbotron set -->
-  <%- include ('../../public/layout/jumbotron') %>
-
-  <div class="container">
-    <div class="card bg-light">
-      <article class="card-body mx-auto" style="max-width: 400px;">
-        <h4 class="card-title mt-3 text-center">Sign UP</h4>
-        <form name="signForm" method="POST" action="/signUp/user" onsubmit="return check()">
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-            </div>
-            <input name="userNick" class="form-control" placeholder="Nick Name" type="text">
-          </div> <!-- form-group// -->
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-            </div>
-            <input name="userEmail" class="form-control" placeholder="Email address" type="email">
-          </div> <!-- form-group// -->
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-            </div>
-            <input class="form-control" name="userPassword" placeholder="Create password" type="password">
-          </div> <!-- form-group// -->
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-            </div>
-            <input class="form-control" name="repeatPassword" placeholder="Repeat password" type="password">
-          </div> <!-- form-group// -->
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block"> Sign Up </button>
-          </div> <!-- form-group// -->
-
-        </form>
-      </article>
-    </div> <!-- card.// -->
-
-
-
-
-
-    <!-- footer set -->
-    <%- include ('../../public/layout/footer') %>
-  </div>
-  <!-- footer end -->
-
-  <%- include ('../../public/layout/script')  %>
-</body>
-
-</html>
+    </form>
+  </article>
+</div> <!-- card.// -->
