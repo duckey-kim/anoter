@@ -7,6 +7,12 @@ const ejs = require("ejs");
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);
 app.use("/public", express.static(__dirname + "/public"));
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
+
+
 //view engine을 ejs로 설정
 //ejs로 render
 //현재디렉토리를 static으로 설정
@@ -26,7 +32,20 @@ app.get("/signUp", (req, res) => {
     titlename: "SIGN UP"
   });
 });
+app.post("/signUp/user", (req, res) => {
 
+  var name = req.body.userNick;
+  var pwd = req.body.userPassword;
+  var email = req.body.userEmail;
+
+  res.render("../public/user/user", {
+    userNick: name,
+    userEmail: email,
+    userPassword: pwd
+  });
+
+
+});
 // "/boards/:category"request "duck-craft/views/"+boards/category.html render
 app.get("/boards/:category", (req, res) => {
   res.render("boards/" + req.params.category, {

@@ -33,6 +33,7 @@
           </tr>
         </thead>
         <tbody>
+          <% for( let index = 0; index < 9; index++ ) { %>
           <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
             <td nowrap scope="row">
               <%= postTitle%></td>
@@ -42,33 +43,7 @@
             </td>
             <td><%= postDate %></td>
           </tr>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td nowrap scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser %></td>
-            <td>
-              <%= postLike %>
-            </td>
-            <td><%= postDate %></td>
-          </tr>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td nowrap scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser %></td>
-            <td>
-              <%= postLike %>
-            </td>
-            <td><%= postDate %></td>
-          </tr>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td nowrap scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser %></td>
-            <td>
-              <%= postLike %>
-            </td>
-            <td><%= postDate %></td>
-          </tr>
+          <% } %>
         </tbody>
       </table>
 

@@ -14,9 +14,10 @@
           <a class="nav-link" href="/boards/gossip">Gossip</a>
         </li>
       </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" aria-label="e-mail" type="email" placeholder="e-mail" /><input
-          class="form-control mr-sm-2" aria-label="password" type="password" placeholder="password" />
+      <form method="GET" class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" aria-label="e-mail" type="email" name="userEmail"
+          placeholder="e-mail" /><input class="form-control mr-sm-2" aria-label="password" type="password"
+          name="reqPassword" placeholder="password" />
         <div class="btn btn-dark my-2 my-sm-0 mr-2" onclick="location.href='#'" type="submit">
           Login
         </div>
