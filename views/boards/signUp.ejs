@@ -6,7 +6,10 @@
 </head>
 
 
+<%- include ('../../public/layout/function') %>
+
 <body>
+
 
   <!-- nav top set-->
   <%- include ('../../public/layout/nav') %>
@@ -21,7 +24,7 @@
     <div class="card bg-light">
       <article class="card-body mx-auto" style="max-width: 400px;">
         <h4 class="card-title mt-3 text-center">Sign UP</h4>
-        <form>
+        <form name="signForm" method="POST" action="/signUp/user" onsubmit="return check()">
           <div class="form-group input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -44,7 +47,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
             </div>
-            <input class="form-control" id="userPassword" placeholder="Repeat password" type="password">
+            <input class="form-control" name="repeatPassword" placeholder="Repeat password" type="password">
           </div> <!-- form-group// -->
           <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block"> Sign Up </button>
