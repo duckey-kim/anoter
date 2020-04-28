@@ -30,3 +30,16 @@
 </div>
 <div class="forSpace" style="height: 10px;"></div>
 <div class="forSpace" style="height: 10px;"></div>
+
+<script>
+  function check() {
+    if (signForm.userPassword.value == signForm.repeatPassword.value) {
+
+      return true;
+    } else if (signForm.userPassword.value !== signForm.repeatPassword.value) {
+      alert("비밀번호가 같지 않습니다.");
+
+      return false;
+    }
+  }
+</script>
