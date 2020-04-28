@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <%- include ('../../public/layout/head') %>
+</head>
+
+<body>
+  <!-- nav top set -->
+  <%- include ('../../public/layout/nav') %>
+  <!-- nav top end -->
+
+  <!-- jumbotron set -->
+
+  <%- include ('../../public/layout/jumbotron') %>
+  <!-- jumbotron end -->
+
+  <!-- board container set -->
+  <div class="container">
+    <form method="POST">
+      <div class="form-group row mb-0">
+        <div class="col-sm-12">
+          <label for="colFormLabelSm" class="col-xs-1 col-form-label col-form-label-sm">제목</label>
+          <div class="col-xs-8">
+            <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="제목을 작성해주세요" />
+          </div>
+          <div class="btn btn-info col-xs-1 btn-sm">
+            <label class="mb-0" for="ex_file">파일추가</label>
+            <input type="file" style="display: none;" id="ex_file" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <label for="colForText" class="col-xs-1 col-form-label col-form-label-sm">내용</label>
+          <textarea class="form-control col-sm-12" id="colForText" rows="4"></textarea>
+        </div>
+      </div>
+    </form>
+
+    <div type=" button" id="saveButton" onclick="alert('수정하겠습니다!')" class="btn btn-primary btn-sm float-right">
+      Save
+    </div>
+
+    <div type=" button" id="cancleButton" onclick="alert('글을 저장하지 않겠습니까?')"
+      class="btn btn-primary btn-sm float-right mr-2">
+      Cancle
+    </div>
+
+    <!-- board container end -->
+    <div class="forSpace" style="height: 20px;"></div>
+    <div class="forSpace" style="height: 20px;"></div>
+
+    <!-- footer set -->
+    <%- include ('../../public/layout/footer') %>
+  </div>
+  <!-- footer end -->
+
+  <%- include ('../../public/layout/script')  %>
+</body>
+
+</html>

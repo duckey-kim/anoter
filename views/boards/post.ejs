@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ('../../public/layout/head') %>
+</head>
+
+<body>
+  <!-- nav top set -->
+  <%- include ('../../public/layout/nav') %>
+  <!-- nav top end -->
+  <!-- jumbotron set -->
+
+  <%- include ('../../public/layout/jumbotron') %>
+  <!-- nav top end -->
+  <div class="btn btn-sm btn-outline-dark m-0 px-1 py-1" onclick="history.back()" style="position: fixed;">
+    < </div> <div class="container">
+      <div class="table-responsive-lg" style="font-size: 14px;">
+        <table class="table table-borderless text-left">
+          <thead>
+            <tr>
+              <th colspan="5" id="boardName" class="bg-info mb-2"><%= category %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="column" name="postTitle" colspan="3" style="width: 20%;">
+                <%= postTitle%>
+              </th>
+              <td scope="column" name="postUser" style="width: 20%;">
+                <%= postUser%>
+              </td>
+              <td scope="column" name="postDate" style="width: 20%;"><%= postDate%>
+              </td>
+            </tr>
+            <tr>
+              <td scope="column" class="p-0" colspan="5">
+                <div class="card">
+                  <img name="postImg" src="/public/img/hair-4672684_1920.jpg" class="card-img-top"
+                    style="min-width: 300px;" alt="..." />
+                  <img name="postImg" src="/public/img/mountains.png" class="card-img-top" style="min-width: 300px;"
+                    alt="..." />
+                  <img name="postImg" src="/public/img/bg.jpg" class="card-img-top" style="min-width: 300px;"
+                    alt="..." />
+                  <p class="card-text" name="postContent" style="font-size:15px">
+                    What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the
+                    printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard dummy text ever since the 1500s, when an
+                    unknown printer took a galley of type and scrambled it to
+                    make a type specimen book. It has survived not only five
+                    centuries, but also the leap into electronic typesetting,
+                    remaining essentially unchanged. It was popularised in the
+                    1960s with the release of Letraset sheets containing Lorem
+                    Ipsum passages, and more recently with desktop publishing
+                    software like Aldus PageMaker including versions of Lorem
+                    Ipsum. Why do we use it? It is a long established fact that
+                    a reader will be distracted by the readable content of a
+                    page when looking at its layout. The point of using Lorem
+                    Ipsum is that it has a more-or-less normal distribution of
+                    letters, as opposed to using 'Content here, content here',
+                    making it look like readable English. Many desktop
+                    publishing packages and web page editors now use Lorem Ipsum
+                    as their default model text, and a search for 'lorem ipsum'
+                    will uncover many web sites still in their infancy. Various
+                    versions have evolved over the years, sometimes by accident,
+                    sometimes on purpose (injected humour and the like).
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <% if (1<0) { %>
+      <div type=" button" id="editButton" onclick="location.href='/boards/:category/posts?action=edit_post'"
+        class="btn btn-primary btn-sm float-right">
+        edit
+      </div>
+      <% } %>
+      <div class="forSpace" style="height: 20px;"></div>
+      <div class="forSpace" style="height: 20px;"></div>
+
+      <!-- pagination end -->
+
+      <!-- footer set -->
+      <%- include ('../../public/layout/footer') %>
+  </div>
+
+  <!-- footer end -->
+
+  <%- include ('../../public/layout/script')  %>
+</body>
+
+</html>

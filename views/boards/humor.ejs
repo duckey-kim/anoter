@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include ('../../public/layout/head') %>
+</head>
+
+<body>
+  <!-- nav top set -->
+  <%- include ('../../public/layout/nav') %>
+  <!-- nav top end -->
+
+  <!-- jumbotron set -->
+
+  <%- include ('../../public/layout/jumbotron') %>
+  <!-- jumbotron end -->
+
+  <!-- board container set -->
+  <div class="container">
+    <div class="table-responsive-lg" style="font-size:14px">
+
+      <table class="table table-hover table-borderless  text-left">
+        <thead>
+          <tr>
+            <th colspan="4" id="boardName" class="bg-info"><%= category %></th>
+          </tr>
+          <tr>
+            <th scope="column" class="postTitle" style="width:38%">제목</th>
+            <th scope="column" class=" postUser" style="width:18%">작성자</th>
+            <th scope="column" class="postLike" style="width:18%">공감</th>
+            <th scope="column" class="postDate" style="width:18%">일자</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for( let index = 0; index < 9; index++ ) { %>
+          <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
+            <td nowrap scope="row">
+              <%= postTitle %></td>
+            <td><%= postUser %></td>
+            <td>
+              <%= postLike %>
+            </td>
+            <td><%= postDate %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    </div>
+    <div type=" button" id="writeButton" onclick="location.href='/boards/humor/posts?action=new_post'"
+      class="btn btn-primary btn-sm float-right">
+      Write</div>
+
+
+
+    <!-- board container end -->
+
+    <!-- pagination set -->
+
+    <ul class="pagination justify-content-center">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+
+
+    <!-- pagination end -->
+
+    <!-- footer set -->
+    <%- include ('../../public/layout/footer') %>
+  </div>
+
+  <!-- footer end -->
+
+  <%- include ('../../public/layout/script')  %>
+
+</body>
+
+</html>
