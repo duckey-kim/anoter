@@ -2,8 +2,23 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
+var firebase = require("firebase/app");
+require("firebase/auth");
+require("firebase/firestore");
 var expressLayouts = require('express-ejs-layouts');
 // 필요한 module require
+// TODO: Replace the following with your app's Firebase project configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyBhmErfYcpvZFwHTGNiEG6dW1xch_MnXsA",
+  authDomain: "duck-craft.firebaseapp.com",
+  databaseURL: "https://duck-craft.firebaseio.com",
+  projectId: "duck-craft",
+  storageBucket: "duck-craft.appspot.com",
+
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);
@@ -30,7 +45,7 @@ app.get("/", (req, res) => {
   });
 });
 app.get("/signUp", (req, res) => {
-  res.render("boards/signUp", {
+  res.render("signUp", {
     titlename: "SIGN UP"
   });
 });
