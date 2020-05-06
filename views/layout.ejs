@@ -1,27 +1,26 @@
-  <!DOCTYPE html>
-  <html lang="ko">
+<!DOCTYPE html>
+<html lang="ko">
 
-  <head>
-    <%- include ('../components/head') %>
-  </head>
+<head>
+  <%- include ('../components/head') %>
+</head>
 
-  <body>
-    <header>
-      <%- include ('../components/nav') %>
-      <%- include ('../components/jumbotron') %>
-    </header>
+<body>
+  <header>
+    <%- include ('../components/nav') %>
+    <%- include ('../components/jumbotron') %>
+  </header>
 
-    <div class="container">
-      <%- body %>
-    </div>
+  <div class="container">
+    <%- body %>
+  </div>
 
-    <footer class="d-flex text-center justify-content-center align-items-end" style="height: 10em;">
-      <%- include ('../components/footer') %>
-    </footer>
+  <footer class="d-flex text-center justify-content-center align-items-end" style="height: 10em;">
+    <%- include ('../components/footer') %>
+  </footer>
 
+  <%- include('../components/script') %>
+  <%-defineContent('account')%>
+</body>
 
-    <%- include('../components/script') %>
-
-  </body>
-
-  </html>
+</html>

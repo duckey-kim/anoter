@@ -14,17 +14,14 @@
           <a class="nav-link" href="/boards/gossip">Gossip</a>
         </li>
       </ul>
-      <form method="GET" class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" aria-label="e-mail" type="email" name="userEmail"
-          placeholder="e-mail" /><input class="form-control mr-sm-2" aria-label="password" type="password"
-          name="reqPassword" placeholder="password" />
-        <div class="btn btn-dark my-2 my-sm-0 mr-2" onclick="location.href='#'" type="submit">
-          Login
+      <div id="account">
+        <div id="user">
+          김덕환
         </div>
-        <div class="btn btn-danger my-2 my-sm-0" onclick="location.href='/signUp'" type="button">
-          Sign Up
+        <div class="btn btn-danger my-2 my-sm-0" onclick="location.href='/account'" type="button">
+          ACCOUNT
         </div>
-      </form>
+      </div>
     </div>
   </nav>
 </div>
@@ -32,14 +29,9 @@
 <div class="forSpace" style="height: 10px;"></div>
 
 <script>
-  function check() {
-    if (signForm.userPassword.value == signForm.repeatPassword.value) {
-
-      return true;
-    } else if (signForm.userPassword.value !== signForm.repeatPassword.value) {
-      alert("비밀번호가 같지 않습니다.");
-
-      return false;
+  window.onload = function () {
+    if (location.pathname == '/account') {
+      document.getElementById('account').style.display = "none";
     }
   }
 </script>

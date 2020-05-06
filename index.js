@@ -2,31 +2,35 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
-var firebase = require("firebase/app");
-require("firebase/auth");
-require("firebase/firestore");
-var expressLayouts = require('express-ejs-layouts');
+var expressLayouts = require("express-ejs-layouts");
+// var firebase = require("firebase/app");
+// require("firebase/auth");
+// require("firebase/firestore");
+
+
 // 필요한 module require
 // TODO: Replace the following with your app's Firebase project configuration
-var firebaseConfig = {
-  apiKey: "AIzaSyBhmErfYcpvZFwHTGNiEG6dW1xch_MnXsA",
-  authDomain: "duck-craft.firebaseapp.com",
-  databaseURL: "https://duck-craft.firebaseio.com",
-  projectId: "duck-craft",
-  storageBucket: "duck-craft.appspot.com",
+// var firebaseConfig = {
+//   apiKey: "AIzaSyBhmErfYcpvZFwHTGNiEG6dW1xch_MnXsA",
+//   authDomain: "duck-craft.firebaseapp.com",
+//   databaseURL: "https://duck-craft.firebaseio.com",
+//   projectId: "duck-craft",
+//   storageBucket: "duck-craft.appspot.com",
 
-};
+// };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
 
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.json());
-app.use(express.urlencoded({
-  extended: true
-}));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 app.use(expressLayouts);
 
 
@@ -41,28 +45,21 @@ app.get("/", (req, res) => {
     titlename: "Duck-Craft",
     postTitle: "postTitle",
     postUser: "postUser",
-    postDate: "postDate"
+    postDate: "postDate",
   });
 });
-app.get("/signUp", (req, res) => {
-  res.render("signUp", {
-    titlename: "SIGN UP"
+app.get("/account", (req, res) => {
+  res.render("account", {
+    titlename: "SIGN UP",
   });
 });
-app.post("/signUp/user", (req, res) => {
-
-  var name = req.body.userNick;
-  var pwd = req.body.userPassword;
-  var email = req.body.userEmail;
-
-  res.render("../public/user/user", {
-    userNick: name,
-    userEmail: email,
-    userPassword: pwd
+app.get("/account/success", (req, res) => {
+  //데이터베이스에 세션과 유저토큰 (uid)를 
+  res.render("account", {
+    titlename: "SIGN UP",
   });
-
-
 });
+
 // "/boards/:category"request "duck-craft/views/"+boards/category.html render
 app.get("/boards/:category", (req, res) => {
   res.render("boards/" + req.params.category, {
@@ -71,8 +68,7 @@ app.get("/boards/:category", (req, res) => {
     postTitle: "postTitle",
     postUser: "postUser",
     postDate: "postDate",
-    postLike: "postLike"
-
+    postLike: "postLike",
   });
 });
 // "/boards/:category/posts/new"request "duck-craft/views/"+boards/new_post.html render
@@ -84,7 +80,7 @@ app.get("/boards/:category/posts", (req, res) => {
     postTitle: "postTitle",
     postUser: "postUser",
     postDate: "postDate",
-    postLike: "postLike"
+    postLike: "postLike",
   });
 });
 //"boards/:catogory/posts?action=new_post" =>"boards/"+req.query.action
