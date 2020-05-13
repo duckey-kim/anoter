@@ -15,10 +15,15 @@
         </li>
       </ul>
       <div id="account">
-        <div id="user">
-          김덕환
+        <div id=loginUser>
+          <span id="user" style="font-weight:bold;font-size:14px">
+          </span>
+          <div id="logoutButton" class="btn btn-sm btn-danger  my-sm-0" style="display:none" onclick="signOut();"
+            type="button">LOGOUT
+          </div>
         </div>
-        <div class="btn btn-danger my-2 my-sm-0" onclick="location.href='/account'" type="button">
+        <div id="accountButton" class="btn btn-sm btn-danger  my-sm-0" style="display:none"
+          onclick="location.href='/account'" type="button">
           ACCOUNT
         </div>
       </div>
@@ -33,5 +38,10 @@
     if (location.pathname == '/account') {
       document.getElementById('account').style.display = "none";
     }
+  }
+
+  function signOut() {
+    firebase.auth().signOut();
+    alert("logout!!");
   }
 </script>

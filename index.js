@@ -53,12 +53,7 @@ app.get("/account", (req, res) => {
     titlename: "SIGN UP",
   });
 });
-app.get("/account/success", (req, res) => {
-  //데이터베이스에 세션과 유저토큰 (uid)를 
-  res.render("account", {
-    titlename: "SIGN UP",
-  });
-});
+
 
 // "/boards/:category"request "duck-craft/views/"+boards/category.html render
 app.get("/boards/:category", (req, res) => {

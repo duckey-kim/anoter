@@ -1,11 +1,9 @@
 <div id="firebaseui-auth-container"></div>
-<div id="loader">L.o.a.ding</div>
+<div id="loader">LOADING</div>
 
 <%- contentFor('account') %>
 
 <script type="text/javascript">
-  var referrer = document.referrer;
-  console.log(referrer);
   var uiConfig = {
     callbacks: {
       signInSuccessWithAuthResult: function (authResult, redirectUrl) {
@@ -16,11 +14,24 @@
         var operationType = authResult.operationType;
         // Do something with the returned AuthResult.
         // Return type determines whether we continue the redirect automatically
-        // or whether we leave that to developer to handle.
 
+        //  when sign in success user data upload firestore
+        var users = firebase.firestore().collection("users");
+        users
+          .add({
+            displayname: user.displayName,
+            email: user.email,
+            uid: user.uid,
+          })
+          .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
+          })
+          .catch(function (error) {
+            console.error("Error adding document: ", error);
+          });
 
-
-        return true;
+        redirectUrl = window.history.go(-3);
+        return false;
       },
       signInFailure: function (error) {
         // Some unrecoverable error occurred during sign-in.
@@ -38,12 +49,12 @@
     },
     credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
     // Query parameter name for mode.
-    queryParameterForWidgetMode: "mode",
+    // queryParameterForWidgetMode: "mode",
     // Query parameter name for sign in success url.
-    queryParameterForSignInSuccessUrl: "signInSuccessUrl",
+    // queryParameterForSignInSuccessUrl: "signInSuccessUrl",
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: "popup",
-    signInSuccessUrl: "/",
+    // signInSuccessUrl: '/',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       {

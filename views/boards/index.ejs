@@ -10,6 +10,7 @@
           </tr>
         </thead>
         <tbody>
+          <% for( let index = 0; index < 5; index++ ) { %>
           <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
             <td scope="row">
               <%=postTitle%></td>
@@ -18,46 +19,7 @@
               <%= postDate%>
             </td>
           </tr>
-          <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
-          <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
-          <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
-          <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
-          <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
+          <% } %>
         </tbody>
       </table>
     </div>
@@ -71,6 +33,7 @@
           </tr>
         </thead>
         <tbody>
+          <% for( let index = 0; index < 5; index++ ) { %>
           <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
             <td scope="row">
               <%= postTitle%></td>
@@ -79,46 +42,7 @@
               <%= postDate%>
             </td>
           </tr>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
-          </tr>
+          <% } %>
         </tbody>
       </table>
     </div>

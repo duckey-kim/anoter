@@ -8,19 +8,19 @@
       </div>
       <div class="btn btn-info col-xs-1 btn-sm">
         <label class="mb-0" for="ex_file">파일추가</label>
-        <input type="file" style="display: none;" id="ex_file" name="postImage" />
+        <input multiple="multiple" type="file" style="display: none;" id="ex_file" name="postImage" />
       </div>
     </div>
   </div>
   <div class="form-group row">
     <div class="col-sm-12">
       <label for="colForText" class="col-xs-1 col-form-label col-form-label-sm">내용</label>
-      <textarea class="form-control col-sm-12" id="colForText" name="postContent" rows="4"></textarea>
+      <textarea class="form-control col-sm-12" id="postContent" name="colForText" rows="4"></textarea>
     </div>
   </div>
 </form>
 
-<div type=" button" id="saveButton" onclick="alert('저장하겠습니다!')" class="btn btn-primary btn-sm float-right">
+<div type=" button" id="saveButton" onclick="post()" class="btn btn-primary btn-sm float-right">
   Save
 </div>
 
@@ -31,3 +31,76 @@
 <!-- board container end -->
 <div class="forSpace" style="height: 20px;"></div>
 <div class="forSpace" style="height: 20px;"></div>
+
+<script>
+  //TODO : check upload imgfile count over 3
+  var input = document.getElementById("ex_file");
+  input.addEventListener('change', checkout);
+
+  function checkout() {
+    var files = document.getElementById("ex_file").files;
+    var
+    if (files.length > 3) {
+      alert("file over 4");
+      files = null;
+    } else {
+      console.log(files);
+    }
+  }
+
+  //  upload post to firestore
+  function post() {
+    var db = firebase.firestore();
+    var dbhumorRef = db.collection("boards").doc("humor").collection("posts");
+    var dbgossipRef = db.collection("boards").doc("gossip").collection("posts");
+    var time = firebase.firestore.Timestamp.now();
+    var user = firebase.auth().currentUser;
+    var file = documnet.getElementById('postImage');
+    // firebase.storage
+    var storageRef = firebase.storage().ref();
+    var storagehomorRef = storageRef.child("humor");
+    var storagegossipRef = storageRef.child("gossip");
+
+    // upload data value
+    var posttitle = document.getElementById("postTitle").value;
+    var postcontent = document.getElementById("postContent").value;
+
+
+    //category : humor upload to firestore
+    if (location.pathname.includes("humor")) {
+      dbhumorRef
+        .add({
+          postuser: user.displayName,
+          posttitle: posttitle,
+          postcontent: postcontent,
+          uploadtime: time,
+        })
+        .then(function () {
+          alert("This post is uploading by user :" + user.displayName);
+          window.history.go(-1);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      // TODO:category humor upload image to firebase-storage
+
+    } else {
+      //category :gossip upload to firestore
+      dbgossipRef
+        .add({
+          postuser: user.displayName,
+          posttitle: posttitle,
+          postcontent: postcontent,
+          uploadtime: time,
+        })
+        .then(function () {
+          alert("This post is uploading by user :" + user.displayName);
+          window.history.go(-1);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      // TODO: category gossip upload image to firebase-storage
+    }
+  }
+</script>

@@ -9,4 +9,44 @@
 <link rel="stylesheet" href="/public/css/style.css" />
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+<script>
+  initApp = function () {
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        // User is signed in.
+
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var uid = user.uid;
+        var phoneNumber = user.phoneNumber;
+        var providerData = user.providerData;
+
+        document.getElementById('user').textContent = displayName;
+        document.getElementById('logoutButton').style.display = "";
+        document.getElementById('accountButton').style.display = "none"
+        user.getIdToken().then(function (accessToken) {
+          console.log("success getidToken :" + user.getIdToken());
+        });
+
+      } else if ((!user) && location.pathname == '/boards/gossip' || location.pathname == '/boards/humor' ||
+        location.pathname == '/boards/gossip/posts' || location.pathname == '/boards/humor/posts') {
+        alert('LOGIN이 필요합니다.')
+        location = "/account";
+      } else if (!user) {
+        // User is signed out.
+        document.getElementById('loginUser').style.display = "none";
+        document.getElementById('accountButton').style.display = "";
+      }
+    }, function (error) {
+      console.log(error);
+    });
+
+  };
+
+  window.addEventListener('load', function () {
+    initApp();
+  });
+</script>
 <title><%= titlename%></title>
