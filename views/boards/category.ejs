@@ -1,34 +1,40 @@
 <div class="table-responsive-lg" style="font-size:14px">
-
   <table class="table table-hover table-borderless  text-left">
+    <colgroup>
+      <col width='10%' />
+      <col width='*%' />
+      <col width='20%' />
+      <col width='20%' />
+    </colgroup>
     <thead>
       <tr>
         <th colspan="4" id="boardName" class="bg-info"><%= category %></th>
       </tr>
       <tr>
-        <th scope="column" class="postTitle" style="width:38%">제목</th>
-        <th scope="column" class=" postUser" style="width:18%">작성자</th>
-        <th scope="column" class="postLike" style="width:18%">공감</th>
+        <th scope="column" class="postTitle" style="width:38%">글번호</th>
+        <th scope="column" class=" postUser" style="width:18%">제목</th>
+        <th scope="column" class="postLike" style="width:18%">작성자</th>
         <th scope="column" class="postDate" style="width:18%">일자</th>
       </tr>
     </thead>
     <tbody>
-      <% for( let index = 0; index < 9; index++ ) { %>
-      <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-        <td nowrap scope="row">
-          <%= postTitle %></td>
-        <td><%= postUser %></td>
-        <td>
-          <%= postLike %>
-        </td>
-        <td><%= postDate %></td>
+    <tbody>
+      <% for(var i=0; i<rows.length; i++) { %>
+      <tr onclick="location.href='/boards/<%=category%>/posts?action=post&number=<%= rows[i].postnum%>'">
+        <td scope="row"><%=rows.length-i%></a></td>
+        <td><%=rows[i].posttitle%></a></td>
+        <td><%=rows[i].postuser%></td>
+
+        <td><%= Date(rows[i].uploadtime)%></td>
       </tr>
-      <% } %>
+      <%
+        }
+       %>
     </tbody>
   </table>
 
 </div>
-<div type=" button" id="writeButton" onclick="location.href='/boards/humor/posts?action=new_post'"
+<div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts?action=new_post'"
   class="btn btn-primary btn-sm float-right">
   Write</div>
 

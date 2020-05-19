@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col-md-6">
       <table class="table table-borderless table-hover">
+        <colgroup>
+          <col width='*%' />
+          <col width='33%' />
+          <col width='33%' />
+        </colgroup>
         <thead>
           <tr>
             <td colspan="3" class="alert alert-info">
@@ -10,21 +15,26 @@
           </tr>
         </thead>
         <tbody>
-          <% for( let index = 0; index < 5; index++ ) { %>
-          <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%=postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
+          <% for(var i=0; i<rows.length; i++) { %>
+          <tr onclick="location.href='/boards/humor/posts?action=post&number=<%= rows[i].postnum%>'">
+
+            <td scope="row"><%=rows[i].posttitle%></a></td>
+            <td><%=rows[i].postuser%></td>
+            <td><%= rows[i].uploadtime%></td>
           </tr>
-          <% } %>
+          <%
+          }
+         %>
         </tbody>
       </table>
     </div>
     <div class="col-md-6">
       <table class=" table table-borderless table-hover ">
+        <colgroup>
+          <col width='*%' />
+          <col width='33%' />
+          <col width='33%' />
+        </colgroup>
         <thead>
           <tr>
             <td colspan="3" class="alert alert-info">
@@ -33,16 +43,16 @@
           </tr>
         </thead>
         <tbody>
-          <% for( let index = 0; index < 5; index++ ) { %>
-          <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-            <td scope="row">
-              <%= postTitle%></td>
-            <td><%= postUser%></td>
-            <td>
-              <%= postDate%>
-            </td>
+          <% for(var i=0; i<rows.length; i++) { %>
+          <tr onclick="location.href='/boards/humor/posts?action=post&number=<%= rows[i].postnum%>'">
+
+            <td scope="row"><%=rows[i].posttitle%></a></td>
+            <td><%=rows[i].postuser%></td>
+            <td><%= rows[i].uploadtime%></td>
           </tr>
-          <% } %>
+          <%
+          }
+         %>
         </tbody>
       </table>
     </div>

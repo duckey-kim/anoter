@@ -1,32 +1,82 @@
-<form method="POST">
+<form id="editPostform " method="POST" action="boards/edit">
   <div class="form-group row mb-0">
     <div class="col-sm-12">
       <label for="colFormLabelSm" class="col-xs-1 col-form-label col-form-label-sm">제목</label>
       <div class="col-xs-8">
-        <input type="text" class="form-control form-control-sm" id="colFormLabelSm" placeholder="제목을 작성해주세요" />
+        <input type="text" class="form-control form-control-sm" id="postTitle" name="posttitle"
+          value="<%= row.posttitle%>">
       </div>
       <div class="btn btn-info col-xs-1 btn-sm">
         <label class="mb-0" for="ex_file">파일추가</label>
-        <input type="file" style="display: none;" id="ex_file" />
+        <input multiple="multiple" type="file" style="display: none;" id="ex_file" name="postimage" />
       </div>
     </div>
   </div>
   <div class="form-group row">
     <div class="col-sm-12">
       <label for="colForText" class="col-xs-1 col-form-label col-form-label-sm">내용</label>
-      <textarea class="form-control col-sm-12" id="colForText" rows="4"></textarea>
+      <textarea class="form-control col-sm-12" id="postcontent" name="postcontent" rows="4">
+      <%= row.postcontent %></textarea>
+    </div>
+  </div>
+  <input type="hidden" name="postnum" value="<%= row.postnum%>">
+  <input type="hidden" name="category" value="<%= category%>">
+  <div type=" button" id="saveButton" data-toggle="modal" data-target="#editmodal"
+    class="btn btn-primary btn-sm float-right">
+    Save
+  </div>
+
+  <div type=" button" id="cancleButton" data-toggle="modal" data-target="#canclemodal"
+    class="btn btn-primary btn-sm float-right mr-2">
+    Cancle
+  </div>
+  <!-- editbutton click modal -->
+  <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirm Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          글을 수정하시겠습니까?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" data-dismiss="modal"
+            onclick="document.getElementById('editPostform').submit()">Save
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- cancle button modal -->
+  <div class="modal fade" id="canclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirm Cancel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          글 수정을 취소하시겠습니까?
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-secondary" onclick="window.history.go(-2)"
+            data-dismiss="modal">Yes</button>
+          <button data-dismiss="modal" type="button" class="btn btn-primary">No</button>
+        </div>
+      </div>
     </div>
   </div>
 </form>
-
-<div type=" button" id="saveButton" onclick="alert('수정하겠습니다!')" class="btn btn-primary btn-sm float-right">
-  Save
-</div>
-
-<div type=" button" id="cancleButton" onclick="alert('글을 저장하지 않겠습니까?')" class="btn btn-primary btn-sm float-right mr-2">
-  Cancle
-</div>
-
 <!-- board container end -->
 <div class="forSpace" style="height: 20px;"></div>
 <div class="forSpace" style="height: 20px;"></div>

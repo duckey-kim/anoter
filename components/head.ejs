@@ -13,39 +13,29 @@
   initApp = function () {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        // User is signed in.
-
         var displayName = user.displayName;
         var email = user.email;
         var emailVerified = user.emailVerified;
         var photoURL = user.photoURL;
         var uid = user.uid;
-        var phoneNumber = user.phoneNumber;
-        var providerData = user.providerData;
-
-        document.getElementById('user').textContent = displayName;
-        document.getElementById('logoutButton').style.display = "";
-        document.getElementById('accountButton').style.display = "none"
-        user.getIdToken().then(function (accessToken) {
-          console.log("success getidToken :" + user.getIdToken());
-        });
-
-      } else if ((!user) && location.pathname == '/boards/gossip' || location.pathname == '/boards/humor' ||
-        location.pathname == '/boards/gossip/posts' || location.pathname == '/boards/humor/posts') {
-        alert('LOGIN이 필요합니다.')
-        location = "/account";
-      } else if (!user) {
+        console.log(user);
+        document.getElementById("user").textContent = displayName;
+        document.getElementById("logoutButton").style.display = "";
+        document.getElementById("accountButton").style.display = "none";
+        if (document.getElementById("writeButton") !== null) {
+          document.getElementById("writeButton").style.display = "";
+        }
+      } else {
         // User is signed out.
-        document.getElementById('loginUser').style.display = "none";
-        document.getElementById('accountButton').style.display = "";
+        document.getElementById("loginUser").style.display = "none";
+        document.getElementById("accountButton").style.display = "";
+        if (document.getElementById("writeButton") !== null) {
+          document.getElementById("writeButton").style.display = "none";
+        }
       }
-    }, function (error) {
-      console.log(error);
     });
-
   };
-
-  window.addEventListener('load', function () {
+  window.addEventListener("load", function () {
     initApp();
   });
 </script>

@@ -12,23 +12,6 @@
         var isNewUser = authResult.additionalUserInfo.isNewUser;
         var providerId = authResult.additionalUserInfo.providerId;
         var operationType = authResult.operationType;
-        // Do something with the returned AuthResult.
-        // Return type determines whether we continue the redirect automatically
-
-        //  when sign in success user data upload firestore
-        var users = firebase.firestore().collection("users");
-        users
-          .add({
-            displayname: user.displayName,
-            email: user.email,
-            uid: user.uid,
-          })
-          .then(function (docRef) {
-            console.log("Document written with ID: ", docRef.id);
-          })
-          .catch(function (error) {
-            console.error("Error adding document: ", error);
-          });
 
         redirectUrl = window.history.go(-3);
         return false;
