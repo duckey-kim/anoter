@@ -1,4 +1,4 @@
-<form id="editPostform " method="POST" action="boards/edit">
+<form id="editPostform " method="POST" action="/edit">
   <div class="form-group row mb-0">
     <div class="col-sm-12">
       <label for="colFormLabelSm" class="col-xs-1 col-form-label col-form-label-sm">제목</label>
@@ -21,16 +21,16 @@
   </div>
   <input type="hidden" name="postnum" value="<%= row.postnum%>">
   <input type="hidden" name="category" value="<%= category%>">
-  <div type=" button" id="saveButton" data-toggle="modal" data-target="#editmodal"
-    class="btn btn-primary btn-sm float-right">
+  <div type=" button" id="saveButton" class="btn btn-primary btn-sm float-right" data-toggle="modal"
+    data-target="#editmodal">
     Save
   </div>
 
-  <div type=" button" id="cancleButton" data-toggle="modal" data-target="#canclemodal"
-    class="btn btn-primary btn-sm float-right mr-2">
+  <div type=" button" id="cancleButton" class="btn btn-primary btn-sm float-right mr-2" data-toggle="modal"
+    data-target="#canclemodal">
     Cancle
   </div>
-  <!-- editbutton click modal -->
+  <!-- editbutton modal -->
   <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -46,8 +46,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" data-dismiss="modal"
-            onclick="document.getElementById('editPostform').submit()">Save
+          <button type="submit" class="btn btn-primary" onclick="document.getElementById('editPostform').submit()">Save
             changes</button>
         </div>
       </div>

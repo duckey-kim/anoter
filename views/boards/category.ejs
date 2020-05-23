@@ -25,7 +25,7 @@
         <td><%=rows[i].posttitle%></a></td>
         <td><%=rows[i].postuser%></td>
 
-        <td><%= Date(rows[i].uploadtime)%></td>
+        <td><%= rows[i].uploadtime%></td>
       </tr>
       <%
         }
@@ -35,7 +35,7 @@
 
 </div>
 <div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts?action=new_post'"
-  class="btn btn-primary btn-sm float-right">
+  class="btn btn-primary btn-sm float-right" style="display:none">
   Write</div>
 
 

@@ -1,5 +1,6 @@
 <div class="table-responsive-xl">
   <div class="row">
+    <% contents.forEach((posts,category)=>{%>
     <div class="col-md-6">
       <table class="table table-borderless table-hover">
         <colgroup>
@@ -10,52 +11,24 @@
         <thead>
           <tr>
             <td colspan="3" class="alert alert-info">
-              <a href="/boards/humor">Humor</a>
+              <a href="/boards/<%= category %>"><%= category%></a>
             </td>
           </tr>
         </thead>
         <tbody>
-          <% for(var i=0; i<rows.length; i++) { %>
-          <tr onclick="location.href='/boards/humor/posts?action=post&number=<%= rows[i].postnum%>'">
+          <% posts.forEach((post)=>{ %>
+          <tr onclick="location.href='/boards/<%=category%>/posts?action=post&number=<%= post.postnum%>'">
 
-            <td scope="row"><%=rows[i].posttitle%></a></td>
-            <td><%=rows[i].postuser%></td>
-            <td><%= rows[i].uploadtime%></td>
+            <td scope="row"><%=post.posttitle%></a></td>
+            <td><%=post.postuser%></td>
+            <td><%=(post.uploadtime.toString())%></td>
           </tr>
           <%
-          }
-         %>
+            })
+           %>
         </tbody>
       </table>
     </div>
-    <div class="col-md-6">
-      <table class=" table table-borderless table-hover ">
-        <colgroup>
-          <col width='*%' />
-          <col width='33%' />
-          <col width='33%' />
-        </colgroup>
-        <thead>
-          <tr>
-            <td colspan="3" class="alert alert-info">
-              <a href="/boards/gossip">Gossip</a>
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(var i=0; i<rows.length; i++) { %>
-          <tr onclick="location.href='/boards/humor/posts?action=post&number=<%= rows[i].postnum%>'">
-
-            <td scope="row"><%=rows[i].posttitle%></a></td>
-            <td><%=rows[i].postuser%></td>
-            <td><%= rows[i].uploadtime%></td>
-          </tr>
-          <%
-          }
-         %>
-        </tbody>
-      </table>
-    </div>
+    <% })%>
   </div>
-
 </div>

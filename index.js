@@ -2,9 +2,9 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
-var fs = require("fs");
 var expressLayouts = require("express-ejs-layouts");
-
+var myModules = require("./my-modules.js");
+// var firebaseui = require("firebaseui");
 // firebase
 var firebase = require("firebase/app");
 require("firebase/auth");
@@ -31,6 +31,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// var ui = new firebaseui.auth.AuthUI(firebase.auth());
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);
 app.use("/public", express.static(__dirname + "/public"));
@@ -41,51 +42,61 @@ app.use(
   })
 );
 app.use(expressLayouts);
-
+// router get '/' render index.ejs
 app.get("/", function (request, response) {
-  db.collection("boards")
-    .doc("humor")
-    .collection("posts")
-    .orderBy("uploadtime", "desc")
-    .limit(5)
+  console.log("hi");
+  var contents = new Map();
+  var allBoardsRef = db.collection("boards");
+  allBoardsRef
     .get()
     .then((snapshot) => {
-      var rows = [];
+      var count = 0;
       snapshot.forEach((doc) => {
-        var childData = doc.data();
-        childData.postnum = doc.id;
-        rows.push(childData);
-      });
-      response.render("boards/index", {
-        titlename: "Duck-Craft",
-        postTitle: "postTitle",
-        postUser: "postUser",
-        postDate: "postDate",
-        rows: rows,
+        let name = doc.data().name;
+        myModules.getPostsFromBoard(allBoardsRef, name).then((posts) => {
+          let p = [];
+          posts.forEach((post) => {
+            var data = post.data();
+            var time = new Date(data.uploadtime);
+            data.uploadtime = time.toString();
+            p.push(data);
+          });
+          contents.set(name, p);
+          count++;
+          if (count == snapshot.size) {
+            response.render("boards/index", {
+              titlename: "Duck-Craft",
+              contents: contents,
+            });
+          }
+        });
       });
     })
     .catch((err) => {
       console.log("Error getting documents", err);
     });
-
-  //gossip board 5개 post render ..
 });
+
 app.get("/account", (request, response) => {
   response.render("account", {
     titlename: "SIGN UP",
   });
 });
-// "/boards/:category"request "duck-craft/views/"+boards/category.html render
+// "/boards/:category"request "duck-craft/views/"+boards/category.ejs render
 app.get("/boards/:category", (request, response) => {
   db.collection("boards")
     .doc(request.params.category)
     .collection("posts")
+    .orderBy("uploadtime", "asc")
     .get()
     .then((snapshot) => {
       var rows = [];
       snapshot.forEach((doc) => {
         var childData = doc.data();
         childData.postnum = doc.id;
+        var time = new Date(childData.uploadtime);
+        childData.uploadtime = time.toString();
+
         rows.push(childData);
       });
       response.render("boards/category", {
@@ -127,11 +138,13 @@ app.get("/boards/:category/posts", (request, response) => {
         } else {
           console.log("Document data:", doc.data());
         }
-
+        var data = doc.data();
+        var time = new Date(data.uploadtime);
+        data.uploadtime = time.toString();
         response.render("boards/" + request.query.action, {
           category: request.params.category,
           titlename: "Duck-Craft",
-          row: doc.data(),
+          row: data,
         });
       })
       .catch(function (error) {
@@ -140,7 +153,7 @@ app.get("/boards/:category/posts", (request, response) => {
   }
 });
 // TODO : edit_post의 form에서 받은 데이터를 firestore에 저장하기!
-app.post("/boards/edit", (request, response) => {
+app.post("/edit", (request, response) => {
   console.log(request.body);
   db.collection("boards")
     .doc(request.body.category)
@@ -159,20 +172,25 @@ app.post("/boards/edit", (request, response) => {
     });
 });
 //TODO new_post.ejs 에서 온 form 형태의 데이터 저장하기
-app.post("/boards/post", (request, response) => {
+
+app.post("/post", (request, response) => {
   var data = request.body;
+  console.log(request.body);
   var doc = db
     .collection("boards")
     .doc(request.body.category)
     .collection("posts")
     .doc();
   data.postnum = doc.id;
+  data.uploadtime = Date.now();
+  data.lastmodified = Date.now();
+  console.log(data);
 
   db.collection("boards")
     .doc(request.body.category)
     .collection("posts")
     .doc(data.postnum)
-    .add(data)
+    .set(data)
     .then(function () {
       response.redirect("/boards/" + request.body.category);
     })

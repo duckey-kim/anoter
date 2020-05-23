@@ -1,4 +1,4 @@
-<form id="postform" method="POST" action="boards/post">
+<form id="postform" method="POST" action="/post">
   <div class="form-group row mb-0">
     <div class="col-sm-12">
       <label for="colFormLabelSm" class="col-xs-1 col-form-label col-form-label-sm">제목</label>
@@ -8,7 +8,7 @@
       </div>
       <div class="btn btn-info col-xs-1 btn-sm">
         <label class="mb-0" for="ex_file">파일추가</label>
-        <input multiple="multiple" type="file" style="display: none;" id="ex_file" name="postImage" />
+        <input multiple="multiple" type="file" style="display: none;" id="ex_file" name="postimage" />
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
     Save
   </div>
 
-  <div type=" button" id="cancleButton" data-toggle="modal" data-target="#canclemodal"
+  <div type=" button" id="cancelButton" data-toggle="modal" data-target="#cancelmodal"
     class="btn btn-primary btn-sm float-right mr-2">
     Cancle
   </div>
@@ -45,8 +45,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary" data-dismiss="modal"
-            onclick="document.getElementById('postform').submit()">Save
+          <button type="submit" class="btn btn-primary" onclick="document.getElementById('postform').submit()">Save
           </button>
         </div>
       </div>
@@ -54,7 +53,7 @@
   </div>
 
   <!-- cancle button modal -->
-  <div class="modal fade" id="canclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div class="modal fade" id="cancelmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -100,57 +99,4 @@
       console.log(files);
     }
   }
-
-  //upload post to firestore
-  // function post() {
-  //   var db = firebase.firestore();
-  //   var dbhumorRef = db.collection("boards").doc("humor").collection("posts");
-  //   console.log(dbhumorRef);
-  //   var dbgossipRef = db.collection("boards").doc("gossip").collection("posts");
-  //   var time = firebase.firestore.Timestamp.now();
-  //   var user = firebase.auth().currentUser;
-  //   var file = document.getElementById("postImage");
-  //   // firebase.storage
-  //   // var storageRef = firebase.storage().ref();
-  //   // var storagehomorRef = storageRef.child("humor");
-  //   // var storagegossipRef = storageRef.child("gossip");
-
-  //   // upload data value
-  //   var posttitle = document.getElementById("postTitle").value;
-  //   var postcontent = document.getElementById("postContent").value;
-
-  //   //category : humor upload to firestore
-  //   if (location.pathname.includes("humor")) {
-  //     dbhumorRef
-  //       .add({
-  //         postuser: user.displayName,
-  //         posttitle: posttitle,
-  //         postcontent: postcontent,
-  //         uploadtime: time,
-  //       })
-  //       .then(function () {
-  //         window.history.go(-1);
-  //       })
-  //       .catch(function (error) {
-  //         console.log(error);
-  //       });
-  //     // TODO:category humor upload image to firebase-storage
-  //   } else {
-  //     //category :gossip upload to firestore
-  //     dbgossipRef
-  //       .add({
-  //         postuser: user.displayName,
-  //         posttitle: posttitle,
-  //         postcontent: postcontent,
-  //         uploadtime: time,
-  //       })
-  //       .then(function () {
-  //         alert("This post is uploading by user :" + user.displayName);
-  //         window.history.go(-1);
-  //       })
-  //       .catch(function (error) {
-  //         console.log(error);
-  //       });
-  //     // TODO: category gossip upload image to firebase-storage
-  //   }
 </script>
