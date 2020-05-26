@@ -4,23 +4,23 @@ const port = process.env.PORT || 3000;
 const ejs = require("ejs");
 var expressLayouts = require("express-ejs-layouts");
 var myModules = require("./my-modules.js");
-// var firebaseui = require("firebaseui");
-// firebase
 var firebase = require("firebase/app");
+// const stream = require("stream");
+var admin = require("firebase-admin");
 require("firebase/auth");
 require("firebase/firestore");
-var admin = require("firebase-admin");
-
+// const {
+//   Storage
+// } = require("@google-cloud/storage");
+//amdin sdk firebase
 var serviceAccount = require("./duck-craft-firebase-adminsdk-emrcq-1dd229402e");
 var firebaseAdmin = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://duck-craft.firebaseio.com",
+
 });
 
 var db = admin.firestore();
-
-// 필요한 module require
-// TODO: Replace the following with your app's Firebase project configuration
 var firebaseConfig = {
   apiKey: "AIzaSyBhmErfYcpvZFwHTGNiEG6dW1xch_MnXsA",
   authDomain: "duck-craft.firebaseapp.com",
@@ -31,7 +31,12 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+// const googleCloud = new Storage({
+//   keyFilename: "duck-craft-3f07f59e4eee.json",
+//   projectId: 'duck-craft'
+// });
+// googleCloud.getBuckets().then(x => console.log(x));
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);
 app.use("/public", express.static(__dirname + "/public"));
@@ -42,9 +47,9 @@ app.use(
   })
 );
 app.use(expressLayouts);
+
 // router get '/' render index.ejs
 app.get("/", function (request, response) {
-  console.log("hi");
   var contents = new Map();
   var allBoardsRef = db.collection("boards");
   allBoardsRef
@@ -87,7 +92,7 @@ app.get("/boards/:category", (request, response) => {
   db.collection("boards")
     .doc(request.params.category)
     .collection("posts")
-    .orderBy("uploadtime", "asc")
+    .orderBy("uploadtime", "desc")
     .get()
     .then((snapshot) => {
       var rows = [];
@@ -112,6 +117,7 @@ app.get("/boards/:category", (request, response) => {
 // request /boards/:category/posts?action =edit_post,new_post
 ///boards/:category/posts?action=delete
 app.get("/boards/:category/posts", (request, response) => {
+  console.log(request.user)
   console.log(request.query.action, request.query.number);
   if (request.query.action == "new_post") {
     response.render("boards/new_post", {
@@ -124,7 +130,8 @@ app.get("/boards/:category/posts", (request, response) => {
       .collection("posts")
       .doc(request.query.number)
       .delete();
-    response.redirect("/boards/" + request.params.category);
+
+    return response.redirect("/boards/" + request.params.category);
   } else {
     //post,edit_post
     db.collection("boards")
@@ -155,6 +162,7 @@ app.get("/boards/:category/posts", (request, response) => {
 // TODO : edit_post의 form에서 받은 데이터를 firestore에 저장하기!
 app.post("/edit", (request, response) => {
   console.log(request.body);
+  console.log(request.body.postimage);
   db.collection("boards")
     .doc(request.body.category)
     .collection("posts")
@@ -172,8 +180,8 @@ app.post("/edit", (request, response) => {
     });
 });
 //TODO new_post.ejs 에서 온 form 형태의 데이터 저장하기
-
 app.post("/post", (request, response) => {
+  console.log(request.body);
   var data = request.body;
   console.log(request.body);
   var doc = db
@@ -181,11 +189,13 @@ app.post("/post", (request, response) => {
     .doc(request.body.category)
     .collection("posts")
     .doc();
+  //TODO : get doc.id and push the data
+  //TODO current userdisplayname push
+
   data.postnum = doc.id;
   data.uploadtime = Date.now();
   data.lastmodified = Date.now();
   console.log(data);
-
   db.collection("boards")
     .doc(request.body.category)
     .collection("posts")
@@ -198,33 +208,6 @@ app.post("/post", (request, response) => {
       console.log(error);
     });
 });
-
-//'/boards/humor/posts?action=post&number=<%= rows[i].postnum%>'
-// app.get("/boards/:category:/posts", (request, response) => {
-//   db.collection("boards")
-//     .doc(request.params.category)
-//     .collection("posts")
-//     .doc(request.query.number)
-//     .get()
-//     .then(doc => {
-//       console.log(request.query.number)
-//       var data = doc.data()
-
-//       response.render("boards/post", {
-//         category: request.params.category,
-//         titlename: "Duck-Craft",
-//         row: data
-
-//       })
-//     })
-//     .catch(err => {
-//       console.log('Error getting document', err);
-//     });
-// })
-//"boards/:catogory/posts?action=new_post" =>"boards/"+req.query.action
-//"boards/:catogory/posts?action=edit_post" =? Same
-//"boards/:catogory/posts?action=post ""  => Same
-
 app.listen(port, () => {
   console.log(`server is running at http://localhost:${port}/`);
 });

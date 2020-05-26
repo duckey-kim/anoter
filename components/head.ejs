@@ -17,23 +17,28 @@
         var email = user.email;
         var emailVerified = user.emailVerified;
         var photoURL = user.photoURL;
-        var uid = user.uid;
-        console.log(user);
-        document.getElementById("user").textContent = displayName;
-        document.getElementById("logoutButton").style.display = "";
-        document.getElementById("accountButton").style.display = "none";
-        if (document.getElementById("writeButton") !== null) {
-          document.getElementById("writeButton").style.display = "";
-        }
+        console.log(Object)
+        user.getIdToken().then(function (idToken) {
+          console.log(idToken);
+          document.getElementById("user").textContent = displayName;
+          document.getElementById("logoutButton").style.display = "";
+          document.getElementById("accountButton").style.display = "none";
+
+          if (document.getElementById("writeButton") !== null) {
+            document.getElementById("writeButton").style.display = "";
+          }
+          if (document.getElementById('loginuser') !== null) {
+            document.getElementById('loginuser').value = displayName;
+          }
+        })
       } else {
         // User is signed out.
         document.getElementById("loginUser").style.display = "none";
         document.getElementById("accountButton").style.display = "";
-        if (document.getElementById("writeButton") !== null) {
-          document.getElementById("writeButton").style.display = "none";
-        }
+
       }
     });
+
   };
   window.addEventListener("load", function () {
     initApp();
