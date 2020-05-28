@@ -1,13 +1,19 @@
 <div class="container-fluid">
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-info">
     <a class="navbar-brand" href="/">Home</a>
-    <button class="navbar-toggler collapsed" aria-expanded="false" aria-controls="navbarCollapse"
-      aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+    <button
+      class="navbar-toggler collapsed"
+      aria-expanded="false"
+      aria-controls="navbarCollapse"
+      aria-label="Toggle navigation"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarCollapse"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="navbar-collapse collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
-
         <li class="nav-item" id="navHumor">
           <a class="nav-link" href="/boards/humor">Humor</a>
         </li>
@@ -18,13 +24,23 @@
       <div id="account">
         <div id="loginUser">
           <span id="user" style="font-weight: bold; font-size: 14px;"> </span>
-          <div id="logoutButton" class="btn btn-sm btn-danger my-sm-0" style="display: none;" onclick="signOut();"
-            type="button">
+          <div
+            id="logoutButton"
+            class="btn btn-sm btn-danger my-sm-0"
+            style="display: none;"
+            onclick="signOut();"
+            type="button"
+          >
             LOGOUT
           </div>
         </div>
-        <div id="accountButton" class="btn btn-sm btn-danger my-sm-0" style="display: none;"
-          onclick="location.href='/account'" type="button">
+        <div
+          id="accountButton"
+          class="btn btn-sm btn-danger my-sm-0"
+          style="display: none;"
+          onclick="location.href='/account'"
+          type="button"
+        >
           ACCOUNT
         </div>
       </div>
@@ -44,10 +60,4 @@
       document.getElementById("navGossip").classList.add("active");
     }
   };
-
-  function signOut() {
-    firebase.auth().signOut();
-    alert("logout!!");
-    location.reload();
-  }
 </script>

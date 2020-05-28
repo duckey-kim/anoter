@@ -2,17 +2,8 @@
   <table class="table table-borderless text-left">
     <thead>
       <tr>
-        <th
-          colspan="5"
-          id="boardName"
-          class="bg-info mb-2"
-          onclick="window.history.back();"
-        >
-          < <%= category %>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
+        <th colspan="5" id="boardName" class="bg-info mb-2" onclick="window.history.back();">
+          < <%= category %> </th> </tr> </thead> <tbody>
       <tr>
         <th scope="column" name="postTitle" colspan="3" style="width: 20%;">
           <%= row.posttitle%>
@@ -27,53 +18,33 @@
       <tr>
         <td scope="column" colspan="5">
           <div class="card">
-            <p class="card-text" name="postContent" style="font-size: 15px;">
-              <%= row.postcontent %>
-            </p>
+            <pre class="card-text" name="postContent" style="font-size: 15px;"><%= row.postcontent %>
+            </pre>
           </div>
         </td>
       </tr>
-    </tbody>
+      </tbody>
   </table>
 </div>
 
 <div id="userequal">
-  <div
-    id="editButton"
-    onclick="location.href='/boards/<%=category%>/posts?action=edit_post&number=<%= row.postnum%>'"
-    class="btn btn-primary btn-sm float-right"
-  >
+  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts?action=edit_post&number=<%= row.postnum%>'"
+    class="btn btn-primary btn-sm float-right">
     Edit
   </div>
-  <div
-    id="deleteButton"
-    data-toggle="modal"
-    data-target="#deletemodal"
-    class="btn btn-secondary btn-sm float-right"
-  >
+  <div id="deleteButton" data-toggle="modal" data-target="#deletemodal" class="btn btn-secondary btn-sm float-right">
     Delete
   </div>
 </div>
 
 <!-- deleteButton modal -->
-<div
-  class="modal fade"
-  id="deletemodal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -84,12 +55,8 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Close
         </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-dismiss="modal"
-          onclick="location.href='/boards/<%=category%>/posts?action=delete&number=<%= row.postnum%>'"
-        >
+        <button type="button" class="btn btn-primary" data-dismiss="modal"
+          onclick="location.href='/boards/<%=category%>/posts?action=delete&number=<%= row.postnum%>'">
           Delete
         </button>
       </div>

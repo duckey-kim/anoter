@@ -1,14 +1,25 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300" rel="stylesheet"
-  type="text/css" />
+<link
+  href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300"
+  rel="stylesheet"
+  type="text/css"
+/>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
 <link rel="stylesheet" href="/public/css/style.css" />
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+/>
 <script>
   initApp = function () {
     firebase.auth().onAuthStateChanged(function (user) {
@@ -17,31 +28,45 @@
         var email = user.email;
         var emailVerified = user.emailVerified;
         var photoURL = user.photoURL;
-        console.log(Object)
+
         user.getIdToken().then(function (idToken) {
-          console.log(idToken);
+          setCookie("user", displayName);
+          setCookie("email", email);
+          console.log(document.cookie);
           document.getElementById("user").textContent = displayName;
           document.getElementById("logoutButton").style.display = "";
           document.getElementById("accountButton").style.display = "none";
-
           if (document.getElementById("writeButton") !== null) {
             document.getElementById("writeButton").style.display = "";
           }
-          if (document.getElementById('loginuser') !== null) {
-            document.getElementById('loginuser').value = displayName;
-          }
-        })
+        });
       } else {
         // User is signed out.
         document.getElementById("loginUser").style.display = "none";
         document.getElementById("accountButton").style.display = "";
-
       }
     });
-
   };
   window.addEventListener("load", function () {
     initApp();
   });
+
+  function setCookie(name, value, days) {
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      var expires = "; expires=" + date.toGMTString();
+    } else {
+      var expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+  }
+  function signOut() {
+    firebase.auth().signOut();
+    alert("logout!!");
+    location.reload();
+    setCookie("user", "");
+    setCookie("email", "");
+  }
 </script>
 <title><%= titlename%></title>

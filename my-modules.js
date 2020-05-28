@@ -3,7 +3,7 @@ const myModules = {
     return collectionRef
       .doc(name)
       .collection("posts")
-      .orderBy("uploadtime", "asc")
+      .orderBy("uploadtime", "desc")
       .limit(5)
       .get();
   },

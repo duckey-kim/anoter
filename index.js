@@ -2,11 +2,13 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
+const cookieParser = require("cookie-parser");
 var expressLayouts = require("express-ejs-layouts");
 var myModules = require("./my-modules.js");
 var firebase = require("firebase/app");
 // const stream = require("stream");
 var admin = require("firebase-admin");
+
 require("firebase/auth");
 require("firebase/firestore");
 // const {
@@ -17,7 +19,6 @@ var serviceAccount = require("./duck-craft-firebase-adminsdk-emrcq-1dd229402e");
 var firebaseAdmin = admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://duck-craft.firebaseio.com",
-
 });
 
 var db = admin.firestore();
@@ -31,12 +32,6 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
-// const googleCloud = new Storage({
-//   keyFilename: "duck-craft-3f07f59e4eee.json",
-//   projectId: 'duck-craft'
-// });
-// googleCloud.getBuckets().then(x => console.log(x));
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);
 app.use("/public", express.static(__dirname + "/public"));
@@ -46,10 +41,13 @@ app.use(
     extended: true,
   })
 );
+app.use(cookieParser());
 app.use(expressLayouts);
 
 // router get '/' render index.ejs
 app.get("/", function (request, response) {
+  console.log(request.cookies.user);
+  console.log(request.cookies.email);
   var contents = new Map();
   var allBoardsRef = db.collection("boards");
   allBoardsRef
@@ -117,7 +115,7 @@ app.get("/boards/:category", (request, response) => {
 // request /boards/:category/posts?action =edit_post,new_post
 ///boards/:category/posts?action=delete
 app.get("/boards/:category/posts", (request, response) => {
-  console.log(request.user)
+  console.log(request.user);
   console.log(request.query.action, request.query.number);
   if (request.query.action == "new_post") {
     response.render("boards/new_post", {
@@ -183,7 +181,7 @@ app.post("/edit", (request, response) => {
 app.post("/post", (request, response) => {
   console.log(request.body);
   var data = request.body;
-  console.log(request.body);
+
   var doc = db
     .collection("boards")
     .doc(request.body.category)
@@ -191,7 +189,7 @@ app.post("/post", (request, response) => {
     .doc();
   //TODO : get doc.id and push the data
   //TODO current userdisplayname push
-
+  data.postuser = request.cookies.user;
   data.postnum = doc.id;
   data.uploadtime = Date.now();
   data.lastmodified = Date.now();
