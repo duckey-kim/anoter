@@ -19,13 +19,13 @@
     </thead>
     <tbody>
     <tbody>
-      <% for(var i=0; i<rows.length; i++) { %>
-      <tr onclick="location.href='/boards/<%=category%>/posts?action=post&number=<%= rows[i].postnum%>'">
-        <td scope="row"><%=rows.length-i%></a></td>
-        <td><%=rows[i].posttitle%></a></td>
-        <td><%=rows[i].postuser%></td>
+      <% for(var i=0; i<data.length; i++) { %>
+      <tr onclick="location.href='/boards/<%=category%>/posts?action=post&number=<%= data[i].postnum%>'">
+        <td scope="row"><%=data.length-i%></a></td>
+        <td><%=data[i].posttitle%></a></td>
+        <td><%=data[i].postuser%></td>
 
-        <td><%= rows[i].uploadtime%></td>
+        <td><%= data[i].uploadtime%></td>
       </tr>
       <%
         }
@@ -34,10 +34,11 @@
   </table>
 
 </div>
+<% if(userName) { %>
 <div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts?action=new_post'"
-  class="btn btn-primary btn-sm float-right" style="display:none">
+  class="btn btn-primary btn-sm float-right">
   Write</div>
-
+<% } %>
 
 
 <!-- board container end -->

@@ -1,6 +1,6 @@
 <div class="table-responsive-xl">
   <div class="row">
-    <% contents.forEach((posts,category)=>{%>
+    <% data.forEach((posts,category)=>{%>
     <div class="col-md-6">
       <table class="table table-borderless table-hover">
         <colgroup>
@@ -10,9 +10,9 @@
         </colgroup>
         <thead>
           <tr>
-            <td colspan="3" class="alert alert-info">
-              <a href="/boards/<%= category %>"><%= category%></a>
-            </td>
+            <th colspan="3" class="bg-info" onclick="location.href='/boards/<%= category %>'">
+              <%= category%>
+            </th>
           </tr>
         </thead>
         <tbody>

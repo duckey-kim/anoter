@@ -13,8 +13,8 @@
         var providerId = authResult.additionalUserInfo.providerId;
         var operationType = authResult.operationType;
 
-        redirectUrl = window.history.go(-3);
-        return false;
+
+        return true;
       },
       signInFailure: function (error) {
         // Some unrecoverable error occurred during sign-in.
@@ -37,15 +37,14 @@
     // queryParameterForSignInSuccessUrl: "signInSuccessUrl",
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: "popup",
-    // signInSuccessUrl: '/',
+    signInSuccessUrl: '/',
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       {
         provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
         // Whether the display name should be displayed in the Sign Up page.
         requireDisplayName: true,
-      },
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      }
     ],
   };
 

@@ -5,32 +5,15 @@ const ejs = require("ejs");
 const cookieParser = require("cookie-parser");
 var expressLayouts = require("express-ejs-layouts");
 var myModules = require("./my-modules.js");
-var firebase = require("firebase/app");
-// const stream = require("stream");
-var admin = require("firebase-admin");
 
-require("firebase/auth");
-require("firebase/firestore");
-// const {
-//   Storage
-// } = require("@google-cloud/storage");
-//amdin sdk firebase
+//admin firestore
+var admin = require("firebase-admin");
 var serviceAccount = require("./duck-craft-firebase-adminsdk-emrcq-1dd229402e");
-var firebaseAdmin = admin.initializeApp({
+admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://duck-craft.firebaseio.com",
 });
-
 var db = admin.firestore();
-var firebaseConfig = {
-  apiKey: "AIzaSyBhmErfYcpvZFwHTGNiEG6dW1xch_MnXsA",
-  authDomain: "duck-craft.firebaseapp.com",
-  databaseURL: "https://duck-craft.firebaseio.com",
-  projectId: "duck-craft",
-  storageBucket: "duck-craft.appspot.com",
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);
@@ -44,10 +27,7 @@ app.use(
 app.use(cookieParser());
 app.use(expressLayouts);
 
-// router get '/' render index.ejs
 app.get("/", function (request, response) {
-  console.log(request.cookies.user);
-  console.log(request.cookies.email);
   var contents = new Map();
   var allBoardsRef = db.collection("boards");
   allBoardsRef
@@ -60,17 +40,13 @@ app.get("/", function (request, response) {
           let p = [];
           posts.forEach((post) => {
             var data = post.data();
-            var time = new Date(data.uploadtime);
-            data.uploadtime = time.toString();
+            myModules.timeToString(data);
             p.push(data);
           });
           contents.set(name, p);
           count++;
           if (count == snapshot.size) {
-            response.render("boards/index", {
-              titlename: "Duck-Craft",
-              contents: contents,
-            });
+            myModules.renderPost(request, response, "boards/index", contents);
           }
         });
       });
@@ -81,10 +57,9 @@ app.get("/", function (request, response) {
 });
 
 app.get("/account", (request, response) => {
-  response.render("account", {
-    titlename: "SIGN UP",
-  });
+  myModules.renderPost(request, response, "account", {});
 });
+
 // "/boards/:category"request "duck-craft/views/"+boards/category.ejs render
 app.get("/boards/:category", (request, response) => {
   db.collection("boards")
@@ -96,61 +71,100 @@ app.get("/boards/:category", (request, response) => {
       var rows = [];
       snapshot.forEach((doc) => {
         var childData = doc.data();
-        childData.postnum = doc.id;
-        var time = new Date(childData.uploadtime);
-        childData.uploadtime = time.toString();
-
+        myModules.timeToString(childData);
         rows.push(childData);
       });
-      response.render("boards/category", {
-        category: request.params.category,
-        titlename: "Duck-Craft",
-        rows: rows,
-      });
+      myModules.renderPost(request, response, "boards/category", rows);
     })
     .catch((err) => {
       console.log("Error getting documents", err);
     });
 });
+
+
 // request /boards/:category/posts?action =edit_post,new_post
 ///boards/:category/posts?action=delete
-app.get("/boards/:category/posts", (request, response) => {
-  console.log(request.user);
-  console.log(request.query.action, request.query.number);
-  if (request.query.action == "new_post") {
-    response.render("boards/new_post", {
-      category: request.params.category,
-      titlename: "Duck-Craft",
-    });
-  } else if (request.query.action == "delete") {
-    db.collection("boards")
-      .doc(request.params.category)
-      .collection("posts")
-      .doc(request.query.number)
-      .delete();
 
-    return response.redirect("/boards/" + request.params.category);
-  } else {
-    //post,edit_post
+// new make router for post
+// app.get("/boards/:category/posts/:postnum",(request,response)=>{
+//   db.collection("boards").doc(request.param.category).collection("post").doc(request.param.postnum).get()
+//   .then((doc) => {
+//       var data = doc.data();
+//       var time = new Date(data.uploadtime);
+//       data.uploadtime = time.toString();
+//       myModules.renderPost(request, response,"boards/post",data);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+// })
+
+app.get("/boards/:category/posts", (request, response) => {
+  if (request.query.action == "new_post") {
+    myModules.renderPost(request, response, "boards/new_post", {});
+  } else if (request.query.action == "delete") {
     db.collection("boards")
       .doc(request.params.category)
       .collection("posts")
       .doc(request.query.number)
       .get()
       .then((doc) => {
-        if (!doc.exists) {
-          console.log("No such document!");
+        var docdatauser = doc.data().postuser;
+        if (!myModules.isAuthenticated(docdatauser, request.cookies.userName)) {
+          response.status(400);
+          return response.end("Not Authorized");
         } else {
-          console.log("Document data:", doc.data());
+          db.collection("boards")
+            .doc(request.params.category)
+            .collection("posts")
+            .doc(request.query.number)
+            .delete();
+          return response.redirect("/boards/" + request.params.category);
         }
+      });
+  } else if (request.query.action == "edit_post") {
+    db.collection("boards")
+      .doc(request.params.category)
+      .collection("posts")
+      .doc(request.query.number)
+      .get()
+      .then((doc) => {
         var data = doc.data();
-        var time = new Date(data.uploadtime);
-        data.uploadtime = time.toString();
-        response.render("boards/" + request.query.action, {
-          category: request.params.category,
-          titlename: "Duck-Craft",
-          row: data,
-        });
+
+        myModules.renderPost(
+          request,
+          response,
+          "boards/" + request.query.action,
+          data
+        );
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  } else {
+    db.collection("boards")
+      .doc(request.params.category)
+      .collection("posts")
+      .doc(request.query.number)
+      .get()
+      .then((doc) => {
+        var docdata = doc.data();
+        var postuser = docdata.postuser;
+        var time = new Date(docdata.uploadtime);
+
+        docdata.uploadtime = time.toString();
+        myModules.renderPost(
+          request,
+          response,
+          "boards/" + request.query.action, {
+            data: docdata,
+            authorized: myModules.isAuthenticated(
+              postuser,
+              request.cookies.userName
+            ),
+          }
+        );
       })
       .catch(function (error) {
         console.log(error);
@@ -159,6 +173,8 @@ app.get("/boards/:category/posts", (request, response) => {
 });
 // TODO : edit_post의 form에서 받은 데이터를 firestore에 저장하기!
 app.post("/edit", (request, response) => {
+  // 한번 더 유저 확인
+
   console.log(request.body);
   console.log(request.body.postimage);
   db.collection("boards")
@@ -189,7 +205,7 @@ app.post("/post", (request, response) => {
     .doc();
   //TODO : get doc.id and push the data
   //TODO current userdisplayname push
-  data.postuser = request.cookies.user;
+  data.postuser = request.cookies.userName;
   data.postnum = doc.id;
   data.uploadtime = Date.now();
   data.lastmodified = Date.now();

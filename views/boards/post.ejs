@@ -6,20 +6,19 @@
           < <%= category %> </th> </tr> </thead> <tbody>
       <tr>
         <th scope="column" name="postTitle" colspan="3" style="width: 20%;">
-          <%= row.posttitle%>
+          <%= data.data.posttitle%>
         </th>
         <td scope="column" name="postUser" style="width: 20%;">
-          <%= row.postuser%>
+          <%= data.data.postuser%>
         </td>
         <td scope="column" name="postDate" style="width: 20%;">
-          <%= row.uploadtime%>
+          <%= data.data.uploadtime%>
         </td>
       </tr>
       <tr>
         <td scope="column" colspan="5">
           <div class="card">
-            <pre class="card-text" name="postContent" style="font-size: 15px;"><%= row.postcontent %>
-            </pre>
+            <pre class="card-text" name="postContent" style="font-size: 15px;"><%= data.data.postcontent %></pre>
           </div>
         </td>
       </tr>
@@ -27,8 +26,11 @@
   </table>
 </div>
 
+
+<% if(data.authorized) { %>
 <div id="userequal">
-  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts?action=edit_post&number=<%= row.postnum%>'"
+  <div id="editButton"
+    onclick="location.href='/boards/<%=category%>/posts?action=edit_post&number=<%= data.data.postnum%>'"
     class="btn btn-primary btn-sm float-right">
     Edit
   </div>
@@ -36,6 +38,9 @@
     Delete
   </div>
 </div>
+<% } %>
+
+
 
 <!-- deleteButton modal -->
 <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -56,7 +61,7 @@
           Close
         </button>
         <button type="button" class="btn btn-primary" data-dismiss="modal"
-          onclick="location.href='/boards/<%=category%>/posts?action=delete&number=<%= row.postnum%>'">
+          onclick="location.href='/boards/<%=category%>/posts?action=delete&number=<%= data.data.postnum%>'">
           Delete
         </button>
       </div>
