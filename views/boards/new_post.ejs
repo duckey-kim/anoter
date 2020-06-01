@@ -1,85 +1,42 @@
 <form id="postform" method="POST" action="/post">
   <div class="form-group row mb-0">
     <div class="col-sm-12">
-      <label
-        for="colFormLabelSm"
-        class="col-xs-1 col-form-label col-form-label-sm"
-        >제목</label
-      >
+      <label for="colFormLabelSm" class="col-xs-1 col-form-label col-form-label-sm">제목</label>
       <div class="col-xs-8">
-        <input
-          type="text"
-          class="form-control form-control-sm"
-          id="posttitle"
-          name="posttitle"
-          placeholder="제목을 작성해주세요"
-        />
+        <input type="text" class="form-control form-control-sm" id="posttitle" name="posttitle"
+          placeholder="제목을 작성해주세요" />
       </div>
       <div class="btn btn-info col-xs-1 btn-sm">
         <label class="mb-0" for="ex_file">파일추가</label>
-        <input
-          multiple="multiple"
-          type="file"
-          style="display: none;"
-          id="ex_file"
-          name="postimage"
-        />
+        <input multiple="multiple" type="file" style="display: none;" id="ex_file" name="postimage" />
       </div>
     </div>
   </div>
   <div class="form-group row">
     <div class="col-sm-12">
-      <label for="colForText" class="col-xs-1 col-form-label col-form-label-sm"
-        >내용</label
-      >
-      <textarea
-        class="form-control col-sm-12"
-        id="postcontent"
-        name="postcontent"
-        rows="4"
-      ></textarea>
+      <label for="colForText" class="col-xs-1 col-form-label col-form-label-sm">내용</label>
+      <textarea class="form-control col-sm-12" id="postcontent" name="postcontent" rows="4"></textarea>
     </div>
   </div>
   <input type="hidden" name="category" value="<%= category%>" />
   <input type="hidden" name="postuser" id="postuser" />
-  <div
-    type=" button"
-    id="saveButton"
-    data-toggle="modal"
-    data-target="#postmodal"
-    class="btn btn-primary btn-sm float-right"
-  >
+  <div type=" button" id="saveButton" data-toggle="modal" data-target="#postmodal"
+    class="btn btn-primary btn-sm float-right">
     Save
   </div>
 
-  <div
-    type=" button"
-    id="cancelButton"
-    data-toggle="modal"
-    data-target="#cancelmodal"
-    class="btn btn-primary btn-sm float-right mr-2"
-  >
+  <div type=" button" id="cancelButton" data-toggle="modal" data-target="#cancelmodal"
+    class="btn btn-primary btn-sm float-right mr-2">
     Cancle
   </div>
   <!-- editbutton click modal -->
-  <div
-    class="modal fade"
-    id="postmodal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="postmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Confirm Post</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -90,11 +47,7 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
             Close
           </button>
-          <button
-            type="submit"
-            class="btn btn-primary"
-            onclick="document.getElementById('postform').submit()"
-          >
+          <button type="submit" class="btn btn-primary" onclick="document.getElementById('postform').submit()">
             Save
           </button>
         </div>
@@ -103,24 +56,13 @@
   </div>
 
   <!-- cancle button modal -->
-  <div
-    class="modal fade"
-    id="cancelmodal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="cancelmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Confirm Cancel</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -128,12 +70,7 @@
           저장을 을 취소하시겠습니까?
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            onclick="window.history.go(-2)"
-            data-dismiss="modal"
-          >
+          <button type="button" class="btn btn-secondary" onclick="window.history.go(-2)" data-dismiss="modal">
             Yes
           </button>
           <button data-dismiss="modal" type="button" class="btn btn-primary">

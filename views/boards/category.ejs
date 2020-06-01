@@ -20,7 +20,7 @@
     <tbody>
     <tbody>
       <% for(var i=0; i<data.length; i++) { %>
-      <tr onclick="location.href='/boards/<%=category%>/posts?action=post&number=<%= data[i].postnum%>'">
+      <tr onclick="location.href='/boards/<%=category%>/posts/<%= data[i].postnum%>'">
         <td scope="row"><%=data.length-i%></a></td>
         <td><%=data[i].posttitle%></a></td>
         <td><%=data[i].postuser%></td>
@@ -35,7 +35,7 @@
 
 </div>
 <% if(userName) { %>
-<div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts?action=new_post'"
+<div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts/?action=new_post'"
   class="btn btn-primary btn-sm float-right">
   Write</div>
 <% } %>

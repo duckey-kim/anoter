@@ -1,5 +1,5 @@
 <form id="editPostform " method="POST" action="/edit">
-  <div class="form-group data mb-0">
+  <div class="form-group row mb-0">
     <div class="col-sm-12">
       <label for="colFormLabelSm" class="col-xs-1 col-form-label col-form-label-sm">제목</label>
       <div class="col-xs-8">
@@ -15,9 +15,8 @@
   <div class="form-group row">
     <div class="col-sm-12">
       <label for="colForText" class="col-xs-1 col-form-label col-form-label-sm">내용</label>
-      <textarea class="form-control col-sm-12" id="postcontent" name="postcontent" rows="4">
-      <%= data.postcontent %></textarea>
-    </div>
+      <textarea class="form-control col-sm-12" id="postcontent" name="postcontent"
+        rows="4"><%= data.postcontent %></textarea></div>
   </div>
   <input type="hidden" name="postnum" value="<%= data.postnum%>">
   <input type="hidden" name="category" value="<%= category%>">

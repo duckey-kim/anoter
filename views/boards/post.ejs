@@ -29,8 +29,7 @@
 
 <% if(data.authorized) { %>
 <div id="userequal">
-  <div id="editButton"
-    onclick="location.href='/boards/<%=category%>/posts?action=edit_post&number=<%= data.data.postnum%>'"
+  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts/<%= data.data.postnum%>?action=edit_post'"
     class="btn btn-primary btn-sm float-right">
     Edit
   </div>
@@ -61,7 +60,7 @@
           Close
         </button>
         <button type="button" class="btn btn-primary" data-dismiss="modal"
-          onclick="location.href='/boards/<%=category%>/posts?action=delete&number=<%= data.data.postnum%>'">
+          onclick="location.href='/boards/<%=category%>/posts/<%= data.data.postnum%>?action=delete'">
           Delete
         </button>
       </div>

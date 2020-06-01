@@ -31,6 +31,5 @@ const myModules = {
     snapshotData.uploadtime = time.toString();
     return snapshotData;
   }
-
 };
 module.exports = myModules;

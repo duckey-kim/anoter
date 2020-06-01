@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <% posts.forEach((post)=>{ %>
-          <tr onclick="location.href='/boards/<%=category%>/posts?action=post&number=<%= post.postnum%>'">
+          <tr onclick="location.href='/boards/<%=category%>/posts/<%= post.postnum%>'">
 
             <td scope="row"><%=post.posttitle%></a></td>
             <td><%=post.postuser%></td>

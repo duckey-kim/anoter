@@ -1,5 +1,4 @@
 const express = require("express");
-const app = express();
 const port = process.env.PORT || 3000;
 const ejs = require("ejs");
 const cookieParser = require("cookie-parser");
@@ -15,6 +14,7 @@ admin.initializeApp({
 });
 var db = admin.firestore();
 
+const app = express();
 app.set("view engine", "ejs");
 app.engine("html", ejs.renderFile);
 app.use("/public", express.static(__dirname + "/public"));
@@ -80,34 +80,19 @@ app.get("/boards/:category", (request, response) => {
       console.log("Error getting documents", err);
     });
 });
-
-
-// request /boards/:category/posts?action =edit_post,new_post
-///boards/:category/posts?action=delete
-
+///boards/:category/posts/?action=new_post
+app.get("/boards/:category/posts/", (request, response) => {
+  myModules.renderPost(request, response, "boards/new_post", {});
+});
 // new make router for post
-// app.get("/boards/:category/posts/:postnum",(request,response)=>{
-//   db.collection("boards").doc(request.param.category).collection("post").doc(request.param.postnum).get()
-//   .then((doc) => {
-//       var data = doc.data();
-//       var time = new Date(data.uploadtime);
-//       data.uploadtime = time.toString();
-//       myModules.renderPost(request, response,"boards/post",data);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
+//boards/:category/posts/:postnum?action=**
+app.get("/boards/:category/posts/:postnum", (request, response) => {
 
-// })
-
-app.get("/boards/:category/posts", (request, response) => {
-  if (request.query.action == "new_post") {
-    myModules.renderPost(request, response, "boards/new_post", {});
-  } else if (request.query.action == "delete") {
+  if (request.query.action == "delete") {
     db.collection("boards")
       .doc(request.params.category)
       .collection("posts")
-      .doc(request.query.number)
+      .doc(request.params.postnum)
       .get()
       .then((doc) => {
         var docdatauser = doc.data().postuser;
@@ -118,7 +103,7 @@ app.get("/boards/:category/posts", (request, response) => {
           db.collection("boards")
             .doc(request.params.category)
             .collection("posts")
-            .doc(request.query.number)
+            .doc(request.params.postnum)
             .delete();
           return response.redirect("/boards/" + request.params.category);
         }
@@ -127,7 +112,7 @@ app.get("/boards/:category/posts", (request, response) => {
     db.collection("boards")
       .doc(request.params.category)
       .collection("posts")
-      .doc(request.query.number)
+      .doc(request.params.postnum)
       .get()
       .then((doc) => {
         var data = doc.data();
@@ -146,7 +131,7 @@ app.get("/boards/:category/posts", (request, response) => {
     db.collection("boards")
       .doc(request.params.category)
       .collection("posts")
-      .doc(request.query.number)
+      .doc(request.params.postnum)
       .get()
       .then((doc) => {
         var docdata = doc.data();
@@ -157,7 +142,7 @@ app.get("/boards/:category/posts", (request, response) => {
         myModules.renderPost(
           request,
           response,
-          "boards/" + request.query.action, {
+          "boards/post", {
             data: docdata,
             authorized: myModules.isAuthenticated(
               postuser,
@@ -173,10 +158,6 @@ app.get("/boards/:category/posts", (request, response) => {
 });
 // TODO : edit_post의 form에서 받은 데이터를 firestore에 저장하기!
 app.post("/edit", (request, response) => {
-  // 한번 더 유저 확인
-
-  console.log(request.body);
-  console.log(request.body.postimage);
   db.collection("boards")
     .doc(request.body.category)
     .collection("posts")
@@ -203,13 +184,10 @@ app.post("/post", (request, response) => {
     .doc(request.body.category)
     .collection("posts")
     .doc();
-  //TODO : get doc.id and push the data
-  //TODO current userdisplayname push
   data.postuser = request.cookies.userName;
   data.postnum = doc.id;
   data.uploadtime = Date.now();
   data.lastmodified = Date.now();
-  console.log(data);
   db.collection("boards")
     .doc(request.body.category)
     .collection("posts")
