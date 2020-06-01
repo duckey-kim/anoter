@@ -26,10 +26,10 @@ app.use(
 );
 app.use(cookieParser());
 app.use(expressLayouts);
-
+var allBoardsRef = db.collection("boards");
 app.get("/", function (request, response) {
   var contents = new Map();
-  var allBoardsRef = db.collection("boards");
+
   allBoardsRef
     .get()
     .then((snapshot) => {
@@ -87,33 +87,21 @@ app.get("/boards/:category/posts/", (request, response) => {
 // new make router for post
 //boards/:category/posts/:postnum?action=**
 app.get("/boards/:category/posts/:postnum", (request, response) => {
-
   if (request.query.action == "delete") {
-    db.collection("boards")
-      .doc(request.params.category)
-      .collection("posts")
-      .doc(request.params.postnum)
-      .get()
+    myModules.getPostsFromCategory(allBoardsRef, request).get()
       .then((doc) => {
         var docdatauser = doc.data().postuser;
         if (!myModules.isAuthenticated(docdatauser, request.cookies.userName)) {
           response.status(400);
           return response.end("Not Authorized");
         } else {
-          db.collection("boards")
-            .doc(request.params.category)
-            .collection("posts")
-            .doc(request.params.postnum)
+          myModules.getPostsFromCategory(allBoardsRef, request)
             .delete();
           return response.redirect("/boards/" + request.params.category);
         }
       });
   } else if (request.query.action == "edit_post") {
-    db.collection("boards")
-      .doc(request.params.category)
-      .collection("posts")
-      .doc(request.params.postnum)
-      .get()
+    myModules.getPostsFromCategory(allBoardsRef, request).get()
       .then((doc) => {
         var data = doc.data();
 
@@ -128,17 +116,12 @@ app.get("/boards/:category/posts/:postnum", (request, response) => {
         console.log(error);
       });
   } else {
-    db.collection("boards")
-      .doc(request.params.category)
-      .collection("posts")
-      .doc(request.params.postnum)
-      .get()
+    //posts/:postnum
+    myModules.getPostsFromCategory(allBoardsRef, request).get()
       .then((doc) => {
         var docdata = doc.data();
+        myModules.timeToString(docdata)
         var postuser = docdata.postuser;
-        var time = new Date(docdata.uploadtime);
-
-        docdata.uploadtime = time.toString();
         myModules.renderPost(
           request,
           response,
@@ -158,10 +141,7 @@ app.get("/boards/:category/posts/:postnum", (request, response) => {
 });
 // TODO : edit_post의 form에서 받은 데이터를 firestore에 저장하기!
 app.post("/edit", (request, response) => {
-  db.collection("boards")
-    .doc(request.body.category)
-    .collection("posts")
-    .doc(request.body.postnum)
+  myModules.uploadDocRef(allBoardsRef, request)
     .update({
       posttitle: request.body.posttitle,
       postcontent: request.body.postcontent,
@@ -176,21 +156,9 @@ app.post("/edit", (request, response) => {
 });
 //TODO new_post.ejs 에서 온 form 형태의 데이터 저장하기
 app.post("/post", (request, response) => {
-  console.log(request.body);
-  var data = request.body;
 
-  var doc = db
-    .collection("boards")
-    .doc(request.body.category)
-    .collection("posts")
-    .doc();
-  data.postuser = request.cookies.userName;
-  data.postnum = doc.id;
-  data.uploadtime = Date.now();
-  data.lastmodified = Date.now();
-  db.collection("boards")
-    .doc(request.body.category)
-    .collection("posts")
+  myModules.setDataFromUser(request.body, myModules.uploadCollectionRef(allBoardsRef, request).doc(), request);
+  myModules.uploadCollectionRef(allBoardsRef, request)
     .doc(data.postnum)
     .set(data)
     .then(function () {
