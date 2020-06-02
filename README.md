@@ -2,14 +2,18 @@
 
 ## Introduction
 
-HTML과 CSS의 기본 지식을 쌓은 후 `bootstrap`을 사용하여 2개의 게시판을 가지고 유저들이 게시물을 올리고 댓글을 달 수 있는 웹페이지의 뼈대를 잡고 `nodejs`와 `expressjs`를 활용하여 웹페이지를 hosting할 것이다.
+Understanded HTML,CSS and use `Bootstrap` to make webpage ,Using `EJS` template engine to use data from `nodejs` server  
+Using `cookie` for authentication ,Save and load post which is created by user in `firebase-store`
+
 
 ## Prerequisite
 
 - Bootstrap >= 4.4.1
-- ExpressJs >= 4.17.1
+- Express >= 4.17.1
 - NodeJs >= 13.12.0
 - Ejs >= 3.0.2
+- express-ejs-layouts >= 2.5.0  
+- cookie-parser >= 1.4.5  
 
 ## Prerequisite Installation
 

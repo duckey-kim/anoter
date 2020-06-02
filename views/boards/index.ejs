@@ -1,163 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="table-responsive-xl">
+  <div class="row">
+    <% data.forEach((posts,category)=>{%>
+    <div class="col-md-6">
+      <table class="table table-borderless table-hover">
+        <colgroup>
+          <col width='*%' />
+          <col width='33%' />
+          <col width='33%' />
+        </colgroup>
+        <thead>
+          <tr>
+            <th colspan="3" class="bg-info" onclick="location.href='/boards/<%= category %>'">
+              <%= category%>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% posts.forEach((post)=>{ %>
+          <tr onclick="location.href='/boards/<%=category%>/posts/<%= post.postnum%>'">
 
-<head>
-  <%- include ('../../public/layout/head') %>
-</head>
-
-<body>
-  <!-- nav top set -->
-
-  <%- include ('../../public/layout/nav') %>
-
-
-  <!-- nav top end -->
-
-  <!-- jumbotron set -->
-  <%- include ('../../public/layout/jumbotron') %>
-
-  <!-- jumbotron end -->
-
-  <!-- home board set -->
-  <div class="container">
-    <div class="table-responsive-xl">
-      <div class="row">
-        <div class="col-md-6">
-          <table class="table table-borderless table-hover">
-            <thead>
-              <tr>
-                <td colspan="3" class="alert alert-info">
-                  <a href="/boards/humor">Humor</a>
-                </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%=postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/humor/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-6">
-          <table class=" table table-borderless table-hover ">
-            <thead>
-              <tr>
-                <td colspan="3" class="alert alert-info">
-                  <a href="/boards/gossip">Gossip</a>
-                </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-              <tr onclick="location.href='/boards/gossip/posts?action=post&number=postNumber'">
-                <td scope="row">
-                  <%= postTitle%></td>
-                <td><%= postUser%></td>
-                <td>
-                  <%= postDate%>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
+            <td scope="row"><%=post.posttitle%></a></td>
+            <td><%=post.postuser%></td>
+            <td><%=(post.uploadtime.toString())%></td>
+          </tr>
+          <%
+            })
+           %>
+        </tbody>
+      </table>
     </div>
-
-
-    <!-- home board end -->
-
-    <!-- footer set -->
-    <%- include ('../../public/layout/footer') %>
+    <% })%>
   </div>
-
-  <!-- footer end -->
-
-  <%- include ('../../public/layout/script')  %>
-</body>
-
-</html>
+</div>
