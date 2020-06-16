@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/duckey-kim/Duck-Craft#readme",
   "dependencies": {
+    "connect-multiparty": "^2.2.0",
     "cookie-parser": "^1.4.5",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
