@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "duck-craft",
+  "private_key_id": "ac79f3d1d978343bf982721118794429ca332b5c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC1MTRioHovpc/I\nwSUsGBH36dPNsgSG1LCnmNJplZRyBipBK9XA/tPlb7PfydlknAkTIE4HPDowKFNS\npdO/lpGHlBmQ1+iXd/XB12P+RApIdD9Eah0KY1jMiuDJou+Dohosx+5RInYWnwpo\nS/NrVpr6Cmw9Eo7/LRT0W5ZfTyZY2WuiIQ/aBlprwQI8LfCcJkSu6SZascLcihw7\nloRtCsfDN1Vx+EXomUP0gjLLf6oGMI2jW0Vyo2ZklTAJ9Fx8eb0D0Y9dGhOFPbit\ne+1XysW7sTCFX6dmc+rKMlqOn9xQQKrAiq3hEDVAMBn/Mp4fdeD/UJ7wIG9x5IsZ\ngo8SSEqbAgMBAAECggEASzoaF0asZCLyAVYbglKeBzF4JAMgeQBONc8vsPGO98ZS\nfctezGmgfTYi1qt9zBUyeVPkwYFCYWMksQAzSWyQkFsvQCE8KsL98FRmahdCs7E7\n4UIzO3Bi2k1gpaa1zY+cUXJSojHuGFdAoWvDLRIAdwajyLlvUEed1xQ9euWoNKOe\n2c3oLC35ILK3/vEoFt5nY8cRN/LWI9fQQEnKzxAf71Vt/m904sTtIkKLr0NWudqm\nONCzh1wlD/Wb/kXeaTbdyMwiWw+LDKyt4MW+Re9X+8mQR6vLa/BqbC0lJAb4kNZh\nkvMeQ3GsV2BCdGTM/PC9zy9a1E4FNUIW9QS5ZMfKUQKBgQD/4MEd1k1FQql8Q6Df\nw/ZO8Q0B+DS6WNBf01suw8U1YLmMgrmjWqYAwZ7XN26WNlQiMZXjvUa9C390Co8j\ndWouR1cIPSGdM18tR8C+PF664ahMdZymKo1c4ZB0xzT4PZZvQEYfF+vANjNL/Qpx\nhsbUgk4s43ZohTj/aPj/B2suCwKBgQC1R1SNSpAQQdBphw4cuPJRXn3FOir4v7u1\n+u7dxTTHF2dPRlgYk7grM2FgGwzIU29f7cQeIagYP9vxd5XW33LOv/+Hg3TuPPwr\n3ASlHbFuQXiaD8oNB69hLhD8Nj0smsv3pNw61oWY168jqp44AudB5DuujcwFDxoy\nXoM1Q8J/sQKBgQDXoNOdDUc4oqCpM2SSrVUX2VMY4c2ta8LNvhMNKbU68jPrEQ7X\ndkCGSqRMwU3UEBx+ZELoFE1UaigR5gQR4ZSFQ2E4dCuriesfAWSP69f4rMljBYnp\nDdrq9rsBbg5ZU60+O2/cLBBjfklkM+1lFirgUp8GfPj/w6Twt8l9QQc1WQKBgFCA\nF5US6ny9rT5fgi3RF5J4wqNF3HVQN5xtjYugGnra8r6qf06SsrNEgtZ5zKhdHNVd\nsbyrt4jlOte1Ai5EVihn7KKSBugQ3u7fKpTkZbmPi23m2xQEOKaQHWzS7UGUkEUt\nybq7LuKbzSOqjc5Tw7xoDPTL9TC97yU1AVEzAPlRAoGAXgLJ2jQ5mZDKWS7EFPfH\nDJqy8eAJ+QgtN1jzwV/XtROTl9qxtB4HdBBhyfPgHgN5/7W1eewREiFunRO2kr6D\noucGYD9zK15YKpqqtd/cJqwkZxVusIDKMRbb14uysBdLa7FRMrO6M1BoI8lPMDGR\nVuvGAX26zItTrAdOkcdu33M=\n-----END PRIVATE KEY-----\n",
+  "client_email": "duck-craft@duck-craft.iam.gserviceaccount.com",
+  "client_id": "102699288670235901838",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/duck-craft%40duck-craft.iam.gserviceaccount.com"
+}
