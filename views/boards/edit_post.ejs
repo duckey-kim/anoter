@@ -6,17 +6,17 @@
         <input type="text" class="form-control form-control-sm" id="postTitle" name="posttitle"
           value="<%= data.posttitle%>">
       </div>
-      <div class="btn btn-info col-xs-1 btn-sm">
+      <!-- <div class="btn btn-info col-xs-1 btn-sm">
         <label class="mb-0" for="ex_file">파일추가</label>
         <input multiple="multiple" type="file" style="display: none;" id="ex_file" name="postimage" />
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="form-group row">
     <div class="col-sm-12">
       <label for="colForText" class="col-xs-1 col-form-label col-form-label-sm">내용</label>
       <textarea class="form-control col-sm-12" id="postcontent" name="postcontent"
-        rows="4"><%= data.postcontent %></textarea></div>
+        rows="4"><%- data.postcontent %></textarea></div>
   </div>
   <input type="hidden" name="postnum" value="<%= data.postnum%>">
   <input type="hidden" name="category" value="<%= category%>">
@@ -27,7 +27,7 @@
 
   <div type=" button" id="cancleButton" class="btn btn-primary btn-sm float-right mr-2" data-toggle="modal"
     data-target="#canclemodal">
-    Cancle
+    Cancel
   </div>
   <!-- editbutton modal -->
   <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -78,3 +78,6 @@
 <!-- board container end -->
 <div class="forSpace" style="height: 20px;"></div>
 <div class="forSpace" style="height: 20px;"></div>
+
+<!-- MyUploadAdapterjs -->
+<script src="/public/js/MyUploadAdapter.js"></script>

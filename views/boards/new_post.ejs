@@ -6,10 +6,6 @@
         <input type="text" class="form-control form-control-sm" id="posttitle" name="posttitle"
           placeholder="제목을 작성해주세요" />
       </div>
-      <div class="btn btn-info col-xs-1 btn-sm">
-        <label class="mb-0" for="ex_file">파일추가</label>
-        <input multiple="multiple" type="file" style="display: none;" id="ex_file" name="postimage" />
-      </div>
     </div>
   </div>
   <div class="form-group row">
@@ -27,9 +23,9 @@
 
   <div type=" button" id="cancelButton" data-toggle="modal" data-target="#cancelmodal"
     class="btn btn-primary btn-sm float-right mr-2">
-    Cancle
+    Cancel
   </div>
-  <!-- editbutton click modal -->
+  <!-- sabebutton click modal -->
   <div class="modal fade" id="postmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -85,19 +81,6 @@
 <div class="forSpace" style="height: 20px;"></div>
 <div class="forSpace" style="height: 20px;"></div>
 
-<script>
-  //TODO : check upload imgfile count over 3
-  var input = document.getElementById("ex_file");
-  input.addEventListener("change", checkout);
 
-  function checkout() {
-    var files = document.getElementById("ex_file").files;
-
-    if (files.length > 3) {
-      alert("file over 4");
-      files = null;
-    } else {
-      console.log(files);
-    }
-  }
-</script>
+<!-- MyUploadAdapterjs -->
+<script src="/public/js/MyUploadAdapter.js"></script>
