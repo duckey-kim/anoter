@@ -42,7 +42,12 @@ const myModules = {
   //data
   timeToString: function (snapshotData) {
     var time = new Date(snapshotData.uploadtime);
-    snapshotData.uploadtime = time.toString();
+    var year = time.getFullYear();
+    var month = time.getMonth() + 1;
+    var day = time.getDate();
+    var hour = time.getHours();
+    var minutes = time.getMinutes();
+    snapshotData.uploadtime = `${year}-${month}-${day} ${hour}:${minutes}`
     return snapshotData;
   },
   setDataFromUser: function (data, doc, request) {
@@ -52,5 +57,8 @@ const myModules = {
     data.lastmodified = Date.now();
     return data;
   }
+
+
+
 };
 module.exports = myModules;

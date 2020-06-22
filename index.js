@@ -137,7 +137,7 @@ app.get("/boards/:category/posts/:postnum", (request, response) => {
         myModules.timeToString(docdata);
         var postuser = docdata.postuser;
         myModules.renderPost(request, response, "boards/post", {
-          data: docdata,
+          docdata: docdata,
           authorized: myModules.isAuthenticated(
             postuser,
             request.cookies.userName
