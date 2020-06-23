@@ -3,6 +3,8 @@
 
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600,300" rel="stylesheet"
   type="text/css" />
+<link rel="stylesheet" type="text/css"
+  href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
   integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
@@ -42,8 +44,12 @@
 
   function signOut() {
     alert("logout!!");
-    firebase.auth().signOut();
-    window.location.reload();
+    firebase.auth().signOut().then(function () {
+      console.log("sign out!!");
+      window.location.reload();
+    }).catch(function (error) {
+      console.log(error);
+    });
   }
 </script>
 <!-- ckeditor -->

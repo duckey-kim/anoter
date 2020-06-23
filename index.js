@@ -102,10 +102,13 @@ app.get("/boards/:category/posts/:postnum", (request, response) => {
       .get()
       .then((doc) => {
         var docdatauser = doc.data().postuser;
+        var docContent = doc.data().postcontent;
         if (!myModules.isAuthenticated(docdatauser, request.cookies.userName)) {
           response.status(400);
           return response.end("Not Authorized");
         } else {
+          console.log(myModules.getImageSrc(docContent));
+
           myModules.getPostsFromCategory(allBoardsRef, request).delete();
           return response.redirect("/boards/" + request.params.category);
         }

@@ -38,6 +38,16 @@ const myModules = {
       return false;
     }
   },
+  // getImageSrc: function (postContent) {
+  //   var m;
+  //   var imageSrc = [];
+  //   var rex = /<img[^>]+src="?([^"\s]+)"?\s*\/>/g;
+  //   while (m = rex.exec(postContent)) {
+
+  //     imageSrc.push(m[1]);
+  //   }
+  //   return imageSrc;
+  // },
 
   //data
   timeToString: function (snapshotData) {

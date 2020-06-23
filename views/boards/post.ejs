@@ -1,33 +1,33 @@
-<div class="table-responsive-lg" style="font-size: 14px;">
-  <table class="table table-borderless text-left">
-    <thead>
-      <tr>
-        <th colspan="5" id="boardName" class="bg-info mb-2" onclick="window.history.back();">
-          < <%= category %> </th> </tr> </thead> <tbody>
-      <tr>
-        <th scope="column" name="postTitle" colspan="3" style="width: 20%;">
-          <%= data.data.posttitle%>
-        </th>
-        <td scope="column" name="postUser" style="width: 20%;">
-          <%= data.data.postuser%>
-        </td>
-        <td scope="column" name="postDate" style="width: 20%;">
-          <%= data.data.uploadtime%>
-        </td>
-      </tr>
-      <tr>
-        <td scope="column" colspan="5">
-          <pre class="card-text" name="postContent" style="font-size: 15px;"><%- data.data.postcontent %></pre>
-        </td>
-      </tr>
-      </tbody>
-  </table>
+<div class="row">
+  <div class="col-sm-12" name="postTitle">
+    <h4>
+      <%= data.docdata.posttitle%>
+    </h4>
+  </div>
+</div>
+<div class="row row-cols-2 border-top border-bottom p-0">
+  <div class="col-sm-9" name="postUser">
+    <h6>
+      <%= data.docdata.postuser%>
+    </h6>
+  </div>
+  <div class="col-sm-2 text-truncate" name="postDate">
+    <h6>
+      <%= data.docdata.uploadtime%>
+    </h6>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12" name="postContent" style="font-size: 1.2rem;">
+    <%- data.docdata.postcontent %>
+  </div>
 </div>
 
 
 <% if(data.authorized) { %>
+<div style="height: 2vw;"></div>
 <div id="userequal">
-  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts/<%= data.data.postnum%>?action=edit_post'"
+  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>?action=edit_post'"
     class="btn btn-primary btn-sm float-right">
     Edit
   </div>
@@ -37,8 +37,6 @@
   </div>
 </div>
 <% } %>
-
-
 
 <!-- deleteButton modal -->
 <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -59,7 +57,7 @@
           Close
         </button>
         <button type="button" class="btn btn-primary" data-dismiss="modal"
-          onclick="location.href='/boards/<%=category%>/posts/<%= data.data.postnum%>?action=delete'">
+          onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>?action=delete'">
           Delete
         </button>
       </div>
