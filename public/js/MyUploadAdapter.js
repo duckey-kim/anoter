@@ -40,7 +40,7 @@ class UploadAdapter {
       }
 
       resolve({
-        default: response.url, //업로드된 파일 주소
+        default: response.url,
       });
     });
   }
@@ -60,6 +60,7 @@ function MyCustomUploadAdapterPlugin(editor) {
 
 ClassicEditor.create(document.querySelector("#postcontent"), {
   extraPlugins: [MyCustomUploadAdapterPlugin],
+
 }).catch((error) => {
   console.error(error);
 });

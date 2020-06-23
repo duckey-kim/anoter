@@ -1,54 +1,38 @@
-<div class="table-responsive-lg" style="font-size:14px">
-  <table class="table table-hover table-borderless  text-left">
-    <colgroup>
-      <col width='10%' />
-      <col width='*%' />
-      <col width='20%' />
-      <col width='20%' />
-    </colgroup>
-    <thead>
-      <tr>
-        <th colspan="4" id="boardName" class="bg-info"><%= category %></th>
-      </tr>
-      <tr>
-        <th scope="column" class="postTitle">글번호</th>
-        <th scope="column" class=" postUser">제목</th>
-        <th scope="column" class="postLike">작성자</th>
-        <th scope="column" class="postDate">일자</th>
-      </tr>
-    </thead>
-    <tbody>
-    <tbody>
-      <% for(var i=0; i<data.length; i++) { %>
-      <tr onclick="location.href='/boards/<%=category%>/posts/<%= data[i].postnum%>'">
-        <td scope="row"><%=data.length-i%></a></td>
-        <td><%=data[i].posttitle%></a></td>
-        <td><%=data[i].postuser%></td>
-
-        <td><%= data[i].uploadtime%></td>
-      </tr>
-      <%
-        }
-       %>
-    </tbody>
-  </table>
-
+<div class="row">
+  <div class="col-sm-12 bg-info borded rounded mb-2">
+    <h4>
+      <%= category.toUpperCase() %>
+    </h4>
+  </div>
 </div>
+<!-- <div class="row row-cols-3 border-bottom" id="rowName">
+  <div class="col-sm-7 text-left">제목</div>
+  <div class="col-sm-3">작성자</div>
+  <div class="col-sm-2">일자</div>
+</div> -->
+<% for(var i=0; i<data.length; i++) { %>
+<div class="row  border-bottom" id="boards" onclick="location.href='/boards/<%=category%>/posts/<%= data[i].postnum%>'">
+  <div class="col-sm-7  text-left text-truncate">
+    <h5>
+      <%=data[i].posttitle%>
+    </h5>
+  </div>
+  <div class="col-sm-3 ">
+    <p>
+      <%=data[i].postuser%>
+    </p>
+  </div>
+  <div class="col-sm-2   text-truncate">
+    <p>
+      <%=data[i].uploadtime%>
+    </p>
+  </div>
+</div>
+<% }%>
+
 <% if(userName) { %>
+<div style="height:2vw"></div>
 <div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts/?action=new_post'"
   class="btn btn-primary btn-sm float-right">
   Write</div>
 <% } %>
-
-
-<!-- board container end -->
-
-<!-- pagination set -->
-
-<ul class="pagination justify-content-center">
-  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-  <li class="page-item"><a class="page-link" href="#">1</a></li>
-  <li class="page-item"><a class="page-link" href="#">2</a></li>
-  <li class="page-item"><a class="page-link" href="#">3</a></li>
-  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-</ul>

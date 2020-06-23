@@ -12,10 +12,57 @@ table td {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 table .card {
   white-space: normal;
 }
 
-body {
-  font-size: 14px;
+body div {
+  font-family: 'NanumSquareRound', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  padding-top: 0.5rem;
+}
+
+h4 {
+  font-weight: 700;
+}
+
+h5 {
+  font-weight: 700;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+#rowName div {
+
+  font-weight: 700;
+}
+
+
+img {
+  height: auto;
+  max-width: 1000px;
+  min-width: 350px;
+  width: 100%;
+}
+
+.row#boards:hover {
+  background-color: beige;
+  opacity: 0.7;
 }
