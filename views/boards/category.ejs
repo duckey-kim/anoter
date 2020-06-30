@@ -1,38 +1,29 @@
-<div class="row">
-  <div class="col-sm-12 bg-info borded rounded mb-2">
-    <h4>
-      <%= category.toUpperCase() %>
-    </h4>
+<div class="row" id="categoryRow">
+  <div class="col-12 col-md-12 bg-bluesky borded rounded no-mr-pd" id="category">
+    <%= category.toUpperCase() %>
   </div>
-</div>
-<!-- <div class="row row-cols-3 border-bottom" id="rowName">
-  <div class="col-sm-7 text-left">제목</div>
-  <div class="col-sm-3">작성자</div>
-  <div class="col-sm-2">일자</div>
-</div> -->
-<% for(var i=0; i<data.length; i++) { %>
-<div class="row  border-bottom" id="boards" onclick="location.href='/boards/<%=category%>/posts/<%= data[i].postnum%>'">
-  <div class="col-sm-7  text-left text-truncate">
-    <h5>
-      <%=data[i].posttitle%>
-    </h5>
-  </div>
-  <div class="col-sm-3 ">
-    <p>
-      <%=data[i].postuser%>
-    </p>
-  </div>
-  <div class="col-sm-2   text-truncate">
-    <p>
-      <%=data[i].uploadtime%>
-    </p>
-  </div>
-</div>
-<% }%>
+  <% for(var i=0; i<data.length; i++) { %>
+  <div class="col-12 col-md-12 border-bottom margin-bottom"
+    onclick="location.href='/boards/<%=category%>/posts/<%= data[i].postnum%>'">
+    <div class="row ">
+      <div class="col-12 col-md-8 text-left text-truncate no-mr-pd">
+        <%=data[i].posttitle%>
+      </div>
+      <div class="col-12 col-md-2 no-mr-pd">
+        <%=data[i].postuser%>
+      </div>
+      <div class="col-12 col-md-2 text-truncate no-mr-pd">
+        <%=data[i].uploadtime%>
+      </div>
+    </div>
 
-<% if(userName) { %>
-<div style="height:2vw"></div>
-<div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts/?action=new_post'"
-  class="btn btn-primary btn-sm float-right">
-  Write</div>
-<% } %>
+  </div>
+  <% }%>
+
+
+  <% if(userName) { %>
+  <div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts/?action=new_post'"
+    class="col-12 offset-md-10 col-md-2 btn bg-bluesky btn-md">
+    Write</div>
+  <% } %>
+</div>

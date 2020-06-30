@@ -1,81 +1,77 @@
-<form id="editPostform " method="POST" action="/edit">
-  <div class="form-group row mb-0">
-    <div class="col-sm-12 mb-2">
-      <input type="text" class="form-control form-control-sm" id="postTitle" name="posttitle"
-        value="<%= data.posttitle%>" />
-    </div>
+<form id="editPostform" class="row" method="POST" action="/edit">
+  <div class="form-group col-12 col-md-12 no-mr-pd">
+    <input type="text" class="form-control form-control-md" id="postTitle" name="posttitle"
+      value="<%= data.posttitle%>" />
   </div>
-  <div class="form-group row">
-    <div class="col-sm-12">
-      <textarea class="form-control col-sm-12" id="postcontent" name="postcontent" rows="4">
+  <div class="form-group col-12 col-md-12 no-mr-pd">
+    <textarea class="form-control " id="postcontent" name="postcontent" rows="4">
 <%- data.postcontent %></textarea>
-    </div>
   </div>
   <input type="hidden" name="postnum" value="<%= data.postnum%>" />
   <input type="hidden" name="category" value="<%= category%>" />
-  <div type=" button" id="saveButton" class="btn btn-primary btn-sm float-right" data-toggle="modal"
+  <div id="saveButton" class="col-12 offset-md-8 col-md-2 btn bg-bluesky btn-md topMargin" data-toggle="modal"
     data-target="#editmodal">
     Save
   </div>
 
-  <div type=" button" id="cancleButton" class="btn btn-primary btn-sm float-right mr-2" data-toggle="modal"
+  <div id="cancleButton" class="col-12 col-md-2 btn btn-secondary btn-md topMargin" data-toggle="modal"
     data-target="#canclemodal">
     Cancel
   </div>
-  <!-- editbutton modal -->
-  <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirm Edit</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          글을 수정하시겠습니까?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-          <button type="submit" class="btn btn-primary" onclick="document.getElementById('editPostform').submit()">
-            Save changes
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- cancle button modal -->
-  <div class="modal fade" id="canclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirm Cancel</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          글 수정을 취소하시겠습니까?
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-secondary" onclick="window.history.go(-2)" data-dismiss="modal">
-            Yes
-          </button>
-          <button data-dismiss="modal" type="button" class="btn btn-primary">
-            No
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 </form>
+<!-- editbutton modal -->
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        글을 수정하시겠습니까?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="submit" class="btn btn-primary" onclick="document.getElementById('editPostform').submit()">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- cancle button modal -->
+<div class="modal fade" id="canclemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Cancel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        글 수정을 취소하시겠습니까?
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" onclick="window.history.go(-2)" data-dismiss="modal">
+          Yes
+        </button>
+        <button data-dismiss="modal" type="button" class="btn btn-primary">
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- board container end -->
-<div class="forSpace" style="height: 20px;"></div>
-<div class="forSpace" style="height: 20px;"></div>
+
 
 <!-- MyUploadAdapterjs -->
 <script src="/public/js/MyUploadAdapter.js"></script>
