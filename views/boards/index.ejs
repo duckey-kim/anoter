@@ -1,28 +1,20 @@
-<div class="row justify-content-sm-center">
+<div class="row">
   <% data.forEach((posts,category)=>{%>
-  <div class="col-sm-5">
-    <div class="row">
-      <div class="col-sm-12 borded rounded bg-info" rowspan="2" onclick="location.href='/boards/<%= category %>'">
-        <h5>
-          <%= category.toUpperCase()%>
-        </h5>
-      </div>
+  <div class="col-12 col-md-6">
+    <div class="col-12 col-md-12 borded rounded bg-bluesky" id="indexCategory"
+      onclick="location.href='/boards/<%= category %>'">
+      <%= category.toUpperCase()%>
     </div>
     <% posts.forEach((post)=>{ %>
-    <div class="row row-cols-2" id="boards" onclick="location.href='/boards/<%=category%>/posts/<%= post.postnum%>'">
-      <div class="col-sm-8 text-truncate">
-        <h6>
-          <%=post.posttitle%>
-        </h6>
+    <div class="row" id="boards" onclick="location.href='/boards/<%=category%>/posts/<%= post.postnum%>'">
+      <div class="col-8 col-md-8 text-truncate">
+        <%=post.posttitle%>
       </div>
-      <div class="col-sm-4 text-right">
-        <h6>
-          <%=post.postuser%>
-        </h6>
+      <div class="col-4 col-md-4 text-right text-truncate">
+        <%=post.postuser%>
       </div>
     </div>
     <% }) %>
   </div>
-  <div class="col-sm-auto"></div>
   <% })%>
 </div>

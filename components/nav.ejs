@@ -1,55 +1,56 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
-    <a class="navbar-brand" href="/">Home</a>
-    <button class="navbar-toggler collapsed" aria-expanded="false" aria-controls="navbarCollapse"
-      aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse" id="navbarCollapse">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-sunset">
+  <a class="navbar-brand" href="/">Home</a>
+  <button class="navbar-toggler collapsed" aria-expanded="false" aria-controls="navbarCollapse"
+    aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse row" id="navbarCollapse">
+    <div class="col-sm-12 col-md-6">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" id="navHumor">
-          <a class="nav-link" href="/boards/humor">Humor</a>
+        <%categories.forEach((element)=>{ %>
+        <li class="nav-item" id="nav<%= element%>">
+          <a class="nav-link" href="/boards/<%=element%>"><%= element.toUpperCase()%></a>
         </li>
-        <li class="nav-item" id="navGossip">
-          <a class="nav-link" href="/boards/gossip">Gossip</a>
-        </li>
+        <%}) %>
       </ul>
-      <div id="account">
-        <% if(userName) { %>
-        <div class="row" id="loginUser">
-          <div class="col-sm-6 " id="user">
-            <h6>
-              <%= userName %>
-            </h6>
-          </div>
-          <div class="col-sm-6 btn btn-sm btn-danger" id="logoutButton" onclick="signOut();">
-            LOGOUT
-          </div>
-        </div>
-
-        <% } else{ %>
-        <div class="row">
-          <div id="accountButton" class="col-sm-12 btn btn-sm btn-danger " onclick="location.href='/account'">
-            ACCOUNT
-          </div>
-        </div>
-
-        <% } %>
-      </div>
     </div>
-  </nav>
-</div>
-<div class="forSpace" style="height: 10px;"></div>
-<div class="forSpace" style="height: 10px;"></div>
+
+    <div id="account" class="col-sm-12 col-md-6">
+      <% if(userName) { %>
+      <div class="row">
+        <div class="col-sm-12 offset-md-4 col-md-6 text-right" id="loginUser">
+          <h6>
+            <%= userName %>님 환영합니다
+          </h6>
+        </div>
+        <div class="col-sm-12 col-md-2 btn btn-sm bg-violet" id="logoutButton" onclick="signOut();">
+          LOGOUT
+        </div>
+      </div>
+
+      <% } else{ %>
+      <div class="row">
+        <div id="accountButton" class="col-sm-12 offset-md-10 col-md-2 btn btn-sm bg-bluesky"
+          onclick="location.href='/account'">
+          ACCOUNT
+        </div>
+      </div>
+
+      <% } %>
+    </div>
+  </div>
+</nav>
+<!-- margin으로 공간 주기 -->
 
 <script>
   window.onload = function () {
     if (location.pathname == "/account") {
       document.getElementById("account").style.display = "none";
-    } else if (location.pathname.includes("humor")) {
-      document.getElementById("navHumor").classList.add("active");
-    } else if (location.pathname.includes("gossip")) {
-      document.getElementById("navGossip").classList.add("active");
+    } else {
+      if (location.pathname.split("/").length > 2) {
+        let navCategory = location.pathname.split("/")[2];
+        document.getElementById("nav" + navCategory).classList.add("active");
+      }
     }
   };
 </script>

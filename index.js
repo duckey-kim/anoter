@@ -14,13 +14,14 @@ var serviceAccount = require("./duck-craft-firebase-adminsdk-emrcq-1dd229402e");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://duck-craft.firebaseio.com",
-  storageBucket: "duck-craft.appspot.com"
+  storageBucket: "duck-craft.appspot.com",
 });
 var db = admin.firestore();
 var storageBucket = admin.storage().bucket();
 
 // my-modules
 var myModules = require("./my-modules.js");
+const { categoriesInitialize } = require("./my-modules.js");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -34,10 +35,12 @@ app.use(
 );
 app.use(cookieParser());
 app.use(expressLayouts);
-var allBoardsRef = db.collection("boards");
+let allBoardsRef = db.collection("boards");
+
+let categories = myModules.categoriesInitialize(allBoardsRef);
 
 app.get("/", function (request, response) {
-  var contents = new Map();
+  let contents = new Map();
 
   allBoardsRef
     .get()
@@ -45,6 +48,7 @@ app.get("/", function (request, response) {
       var count = 0;
       snapshot.forEach((doc) => {
         let name = doc.data().name;
+
         myModules.getPostsFromBoard(allBoardsRef, name).then((posts) => {
           let p = [];
           posts.forEach((post) => {
@@ -54,8 +58,17 @@ app.get("/", function (request, response) {
           });
           contents.set(name, p);
           count++;
+
           if (count == snapshot.size) {
-            myModules.renderPost(request, response, "boards/index", contents);
+            // Map data sort
+            var contentsSorted = new Map([...contents.entries()].sort());
+            console.log(contentsSorted.keys());
+            myModules.renderPost(
+              request,
+              response,
+              "boards/index",
+              contentsSorted
+            );
           }
         });
       });
@@ -189,7 +202,10 @@ app.post("/post", (request, response) => {
 });
 
 // imageuploader router
-app.post("/public/img/uploads", multipartMiddleware, function (request, response) {
+app.post("/public/img/uploads", multipartMiddleware, function (
+  request,
+  response
+) {
   var bucketName = "duck-craft";
   var filePath = request.files.upload.path;
   var fileName = request.files.upload.name;
@@ -219,8 +235,6 @@ app.post("/public/img/uploads", multipartMiddleware, function (request, response
   }
 
   uploadFile().catch(console.error);
-
-
 });
 
 app.listen(port, () => {

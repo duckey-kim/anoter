@@ -2,67 +2,135 @@ a {
   text-decoration: none !important;
 }
 
-table {
-  table-layout: fixed;
-}
-
-table th,
-table td {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-table .card {
-  white-space: normal;
-}
-
-body div {
-  font-family: 'NanumSquareRound', sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  padding-top: 0.5rem;
-}
-
-h4 {
-  font-weight: 700;
-}
-
-h5 {
-  font-weight: 700;
-}
-
-h6 {
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-#rowName div {
-
-  font-weight: 700;
-}
-
-
 img {
   height: auto;
-  max-width: 1000px;
-  min-width: 350px;
+  max-width: 750px;
+  min-width: 330px;
   width: 100%;
 }
 
-.row#boards:hover {
+.container div {
+  font-family: "NanumSquareRound", sans-serif;
+  font-size: 14px;
+
+}
+
+/* footer css  */
+footer .row {
+  margin-top: 15em;
+  text-align: center;
+
+  font-size: 0.8em;
+}
+
+/* navbar css */
+nav {
+  margin-bottom: 3em;
+}
+
+.navbar-brand {
+  padding-top: 0;
+}
+
+#loginUser {
+  margin-top: 0.3em;
+}
+
+/* hover CSS*/
+#boards:hover {
   background-color: beige;
   opacity: 0.7;
+}
+
+/* background color CSS */
+.bg-sunset {
+  background-color: #DF627F
+}
+
+.bg-melon {
+  background-color: #EAECCB;
+}
+
+.bg-bluesky {
+  background-color: #8EC5FC;
+}
+
+.bg-violet {
+  background-color: #B18EC4;
+}
+
+/* margin & padding CSS */
+.no-mr-pd {
+  margin: 0;
+  padding: 0;
+}
+
+.no-mx-pd {
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.no-pd {
+  padding: 0;
+}
+
+/* index.ejs CSS */
+
+#indexCategory {
+  padding-left: 0em;
+
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+/* category.ejs CSS */
+#categoryRow {
+  margin-left: .1em;
+  margin-right: .1em;
+}
+
+#category {
+  padding-left: 0em;
+
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.margin-bottom {
+  margin-bottom: 0.5em;
+}
+
+/* post.ejs CSS */
+#postRow {
+  margin-left: .1em;
+  margin-right: .1em;
+}
+
+#postTitle {
+  font-weight: 700;
+  font-size: 1.2em;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#postContent {
+  font-size: 0.9em;
+}
+
+.topMargin {
+  margin-top: 10px;
+}
+
+
+/* edit_post.ejs CSS */
+#editPostform {
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+}
+
+/* new_post.ejs CSS */
+#postform {
+  margin-left: .1em;
+  margin-right: .1em;
 }

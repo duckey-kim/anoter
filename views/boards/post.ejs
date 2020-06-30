@@ -1,43 +1,34 @@
-<div class="row">
-  <div class="col-sm-12" name="postTitle">
-    <h4>
-      <%= data.docdata.posttitle%>
-    </h4>
+<div class="row " id="postRow">
+  <div class="col-12 col-md-12 no-mr-pd" id="postTitle">
+    <%= data.docdata.posttitle%>
   </div>
-</div>
-<div class="row row-cols-2 border-top border-bottom p-0">
-  <div class="col-sm-9" name="postUser">
-    <h6>
+  <div class="col-12 col-md-12   bg-melon no-mr-pd">
+    <div class="col-12 col-md-8  no-mr-pd">
       <%= data.docdata.postuser%>
-    </h6>
-  </div>
-  <div class="col-sm-2 text-truncate" name="postDate">
-    <h6>
+    </div>
+    <div class="col-12 col-md-4 text-truncate no-mr-pd">
       <%= data.docdata.uploadtime%>
-    </h6>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-12" name="postContent" style="font-size: 1.2rem;">
-    <%- data.docdata.postcontent %>
+
+  <div class="col-12 col-md-12  no-mx-pd" id="postContent">
+    <div class="card">
+      <%- data.docdata.postcontent %>
+    </div>
   </div>
-</div>
+  <% if(data.authorized) { %>
 
-
-<% if(data.authorized) { %>
-<div style="height: 2vw;"></div>
-<div id="userequal">
   <div id="editButton" onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>?action=edit_post'"
-    class="btn btn-primary btn-sm float-right">
+    class="col-12 offset-md-8 col-md-2 btn bg-bluesky btn-md topMargin">
     Edit
   </div>
   <div id="deleteButton" data-toggle="modal" data-target="#deletemodal"
-    class="btn btn-secondary btn-sm float-right mr-2">
+    class=" col-12 col-md-2 btn btn-secondary btn-md topMargin">
     Delete
   </div>
-</div>
-<% } %>
 
+  <% } %>
+</div>
 <!-- deleteButton modal -->
 <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -64,5 +55,3 @@
     </div>
   </div>
 </div>
-<div class="forSpace" style="height: 20px;"></div>
-<div class="forSpace" style="height: 20px;"></div>
