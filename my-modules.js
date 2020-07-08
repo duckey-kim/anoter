@@ -14,15 +14,16 @@ Number.prototype.zf = function (len) {
 };
 let categories = [];
 const myModules = {
-  categoriesInitialize: function (allBoardsRef) {
-    allBoardsRef.get().then((snapshot) => {
+  categories: categories,
+  categoriesInitialize: function (collectionRef) {
+    collectionRef.get().then((snapshot) => {
       snapshot.forEach((doc) => {
         let name = doc.data().name;
         categories.push(name);
       });
     });
     categories.sort();
-    return categories;
+
   },
   //getRef
   getPostsFromBoard: function (collectionRef, name) {
@@ -41,13 +42,14 @@ const myModules = {
       .doc(request.params.postnum);
   },
 
-  //postREf
+  //upload Ref 
+
   uploadCollectionRef: function (collectionRef, request) {
-    return collectionRef.doc(request.body.category).collection("posts");
+    return collectionRef.doc(request.params.category).collection("posts");
   },
   uploadDocRef: function (collectionRef, request) {
     return this.uploadCollectionRef(collectionRef, request).doc(
-      request.body.postnum
+      request.params.postnum
     );
   },
 
@@ -82,12 +84,11 @@ const myModules = {
     snapshotData.uploadtime = `${year}-${month}-${day} ${hour}:${minutes}`;
     return snapshotData;
   },
-  setDataFromUser: function (data, doc, request) {
+  uploadPostData: function (data, doc, request) {
     data.postuser = request.cookies.userName;
     data.postnum = doc.id;
     data.uploadtime = Date.now();
     data.lastmodified = Date.now();
-    return data;
   },
 };
 module.exports = myModules;

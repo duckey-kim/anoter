@@ -1,20 +1,19 @@
-<form id="editPostform" class="row" method="POST" action="/edit">
-  <div class="form-group col-12 col-md-12 no-mr-pd">
-    <input type="text" class="form-control form-control-md" id="postTitle" name="posttitle"
+<form id="editPostform" class="row mb-4" method="POST" action="/boards/<%= category%>/posts/<%= data.postnum%>/update">
+  <div class="form-group col-12 ">
+    <input type="text" class="form-control form-control-md" id="posttitle" name="posttitle"
       value="<%= data.posttitle%>" />
   </div>
-  <div class="form-group col-12 col-md-12 no-mr-pd">
-    <textarea class="form-control " id="postcontent" name="postcontent" rows="4">
+  <div class="form-group col-12 ">
+    <textarea class="form-control " id="postcontent" name="postcontent">
 <%- data.postcontent %></textarea>
   </div>
-  <input type="hidden" name="postnum" value="<%= data.postnum%>" />
-  <input type="hidden" name="category" value="<%= category%>" />
-  <div id="saveButton" class="col-12 offset-md-8 col-md-2 btn bg-bluesky btn-md topMargin" data-toggle="modal"
+
+  <div id="saveButton" class="col-12 offset-md-8 col-md-2 btn bg-beige btn-md topMargin" data-toggle="modal"
     data-target="#editmodal">
     Save
   </div>
 
-  <div id="cancleButton" class="col-12 col-md-2 btn btn-secondary btn-md topMargin" data-toggle="modal"
+  <div id="cancleButton" class="col-12 col-md-2 btn bg-darkbeige btn-md topMargin" data-toggle="modal"
     data-target="#canclemodal">
     Cancel
   </div>
