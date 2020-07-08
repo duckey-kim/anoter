@@ -1,29 +1,29 @@
-<div class="row" id="categoryRow">
-  <div class="col-12 col-md-12 bg-bluesky borded rounded no-mr-pd" id="category">
-    <%= category.toUpperCase() %>
-  </div>
-  <% for(var i=0; i<data.length; i++) { %>
-  <div class="col-12 col-md-12 border-bottom margin-bottom"
-    onclick="location.href='/boards/<%=category%>/posts/<%= data[i].postnum%>'">
-    <div class="row ">
-      <div class="col-12 col-md-8 text-left text-truncate no-mr-pd">
-        <%=data[i].posttitle%>
+<div class="row">
+  <div class="col-12">
+    <div class="categoryBox mt-1">
+      <div class="row bg-pink borded rounded category">
+        <%= category.toUpperCase() %>
       </div>
-      <div class="col-12 col-md-2 no-mr-pd">
-        <%=data[i].postuser%>
+      <% for(var i=0; i<data.length; i++) { %>
+      <div class="row mt-1" id="boards" onclick="location.href='/boards/<%=category%>/posts/<%= data[i].postnum%>'">
+        <div class="col-12 col-md-8  bold text-left text-truncate">
+          <%=data[i].posttitle%>
+        </div>
+        <div class="col-6 col-md-2 fontSizeDown">
+          <%=data[i].postuser%>
+        </div>
+        <div class="col-6 col-md-2 fontSizeDown  text-right text-truncate">
+          <%=data[i].uploadtime%>
+        </div>
       </div>
-      <div class="col-12 col-md-2 text-truncate no-mr-pd">
-        <%=data[i].uploadtime%>
+      <% }%>
+      <% if(userName) { %>
+      <div class="row">
+        <div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts/new'"
+          class="col-12 offset-md-10 col-md-2 btn bg-beige btn-md mt-2">
+          Write</div>
       </div>
+      <% } %>
     </div>
-
   </div>
-  <% }%>
-
-
-  <% if(userName) { %>
-  <div type=" button" id="writeButton" onclick="location.href='/boards/<%= category %>/posts/?action=new_post'"
-    class="col-12 offset-md-10 col-md-2 btn bg-bluesky btn-md">
-    Write</div>
-  <% } %>
 </div>

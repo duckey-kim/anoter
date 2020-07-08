@@ -1,29 +1,31 @@
-<div class="row " id="postRow">
-  <div class="col-12 col-md-12 no-mr-pd" id="postTitle">
+<div class="row postBox mb-4">
+  <div class="col-12 mb-1" id="postTitle">
     <%= data.docdata.posttitle%>
   </div>
-  <div class="col-12 col-md-12   bg-melon no-mr-pd">
-    <div class="col-12 col-md-8  no-mr-pd">
-      <%= data.docdata.postuser%>
-    </div>
-    <div class="col-12 col-md-4 text-truncate no-mr-pd">
-      <%= data.docdata.uploadtime%>
-    </div>
+
+  <div class="col-12 col-md-8 bg-beige">
+    <%= data.docdata.postuser%>
+  </div>
+  <div class="col-12 col-md-4 bg-beige text-truncate">
+    <%= data.docdata.uploadtime%>
   </div>
 
-  <div class="col-12 col-md-12  no-mx-pd" id="postContent">
+
+  <div class="col-12 " id="postContent">
     <div class="card">
-      <%- data.docdata.postcontent %>
+      <div class="contentInCard">
+        <%- data.docdata.postcontent %>
+      </div>
     </div>
   </div>
   <% if(data.authorized) { %>
 
-  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>?action=edit_post'"
-    class="col-12 offset-md-8 col-md-2 btn bg-bluesky btn-md topMargin">
+  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>/edit_post'"
+    class="col-12 offset-md-8 col-md-2 btn bg-beige btn-md mt-1">
     Edit
   </div>
   <div id="deleteButton" data-toggle="modal" data-target="#deletemodal"
-    class=" col-12 col-md-2 btn btn-secondary btn-md topMargin">
+    class=" col-12 col-md-2 btn bg-darkbeige btn-md mt-1">
     Delete
   </div>
 
@@ -48,7 +50,7 @@
           Close
         </button>
         <button type="button" class="btn btn-primary" data-dismiss="modal"
-          onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>?action=delete'">
+          onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>/delete'">
           Delete
         </button>
       </div>

@@ -1,4 +1,4 @@
-<form id="postform" class="row" method="POST" action="/post">
+<form id="postform" class="row" method="POST" action="/boards/<%=category%>/posts/new">
   <div class="form-groupcol-12 col-md-12 no-mr-pd">
     <input type="text" class="form-control form-control-md" id="posttitle" name="posttitle" placeholder="제목을 작성해주세요" />
   </div>
@@ -8,12 +8,12 @@
   <input type="hidden" name="category" value="<%= category%>" />
   <input type="hidden" name="postuser" id="postuser" />
   <div type=" button" id="saveButton" data-toggle="modal" data-target="#postmodal"
-    class="col-12 offset-md-8 col-md-2 btn bg-bluesky btn-md topMargin">
+    class="col-12 offset-md-8 col-md-2 btn bg-beige btn-md topMargin">
     Save
   </div>
 
   <div type=" button" id="cancelButton" data-toggle="modal" data-target="#cancelmodal"
-    class="col-12 col-md-2 btn btn-secondary btn-md topMargin">
+    class="col-12 col-md-2 btn bg-darkbeige btn-md topMargin">
     Cancel
   </div>
 </form>

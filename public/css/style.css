@@ -1,6 +1,11 @@
+body div {
+  font-size: 14px;
+}
+
 a {
   text-decoration: none !important;
 }
+
 
 img {
   height: auto;
@@ -9,18 +14,9 @@ img {
   width: 100%;
 }
 
+
 .container div {
   font-family: "NanumSquareRound", sans-serif;
-  font-size: 14px;
-
-}
-
-/* footer css  */
-footer .row {
-  margin-top: 15em;
-  text-align: center;
-
-  font-size: 0.8em;
 }
 
 /* navbar css */
@@ -33,30 +29,30 @@ nav {
 }
 
 #loginUser {
-  margin-top: 0.3em;
+  margin-top: 0.4em;
 }
 
 /* hover CSS*/
 #boards:hover {
-  background-color: beige;
+  background-color: pink;
   opacity: 0.7;
 }
 
 /* background color CSS */
-.bg-sunset {
-  background-color: #DF627F
+.bg-darkpink {
+  background-color: #eb9f9f;
 }
 
-.bg-melon {
-  background-color: #EAECCB;
+.bg-pink {
+  background-color: #f1bbba;
 }
 
-.bg-bluesky {
-  background-color: #8EC5FC;
+.bg-beige {
+  background-color: #f8ecc9;
 }
 
-.bg-violet {
-  background-color: #B18EC4;
+.bg-darkbeige {
+  background-color: #a79c8e;
 }
 
 /* margin & padding CSS */
@@ -75,53 +71,81 @@ nav {
   padding: 0;
 }
 
-/* index.ejs CSS */
-
-#indexCategory {
-  padding-left: 0em;
-
+.bold {
   font-weight: 700;
-  font-size: 1.2em;
 }
 
-/* category.ejs CSS */
-#categoryRow {
-  margin-left: .1em;
-  margin-right: .1em;
+/* fontsize CSS */
+.fontSizeUp {
+  font-size: 1.1em;
 }
 
-#category {
-  padding-left: 0em;
-
-  font-weight: 700;
-  font-size: 1.2em;
-}
-
-.margin-bottom {
-  margin-bottom: 0.5em;
-}
-
-/* post.ejs CSS */
-#postRow {
-  margin-left: .1em;
-  margin-right: .1em;
-}
-
-#postTitle {
-  font-weight: 700;
-  font-size: 1.2em;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-#postContent {
+.fontSizeDown {
   font-size: 0.9em;
 }
 
-.topMargin {
-  margin-top: 10px;
+.btn {
+  font-size: 1em;
 }
 
+/* footer */
+.fixed-bottom {
+  height: 2em;
+}
+
+/* index.ejs CSS */
+
+.indexBox {
+  padding-left: 0.37em;
+  padding-right: 0.37em;
+}
+
+.indexCategory {
+  font-weight: 700;
+  font-size: 1.2em;
+  padding-left: 1em;
+  padding-right: 1em;
+  color: white;
+}
+
+/* category.ejs CSS */
+
+.categoryBox {
+  padding-left: 0.37em;
+  padding-right: 0.37em;
+}
+
+/* .categoryRow {
+  margin-left: 1em;
+  margin-right: 1em;} */
+
+.category {
+  padding-left: 1em;
+  padding-right: 1em;
+  font-weight: 700;
+  font-size: 1.2em;
+  color: white;
+}
+
+/* post.ejs CSS */
+.postBox {
+  padding-left: 0.37em;
+  padding-right: 0.37em;
+}
+
+#postTitle {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#postContent {
+  padding: 0em;
+}
+
+.contentInCard {
+  padding-left: 1em;
+  padding-right: 1em;
+}
 
 /* edit_post.ejs CSS */
 #editPostform {
@@ -131,6 +155,6 @@ nav {
 
 /* new_post.ejs CSS */
 #postform {
-  margin-left: .1em;
-  margin-right: .1em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
 }

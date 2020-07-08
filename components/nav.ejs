@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-sunset">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-darkbeige">
   <a class="navbar-brand" href="/">Home</a>
   <button class="navbar-toggler collapsed" aria-expanded="false" aria-controls="navbarCollapse"
     aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarCollapse">
@@ -9,7 +9,7 @@
       <ul class="navbar-nav mr-auto">
         <%categories.forEach((element)=>{ %>
         <li class="nav-item" id="nav<%= element%>">
-          <a class="nav-link" href="/boards/<%=element%>"><%= element.toUpperCase()%></a>
+          <a class="nav-link" href="/boards/<%=element%>/posts"><%= element.toUpperCase()%></a>
         </li>
         <%}) %>
       </ul>
@@ -23,14 +23,14 @@
             <%= userName %>님 환영합니다
           </h6>
         </div>
-        <div class="col-sm-12 col-md-2 btn btn-sm bg-violet" id="logoutButton" onclick="signOut();">
+        <div class="col-sm-12 col-md-2 btn btn-md bg-beige" id="logoutButton" onclick="signOut();">
           LOGOUT
         </div>
       </div>
 
       <% } else{ %>
       <div class="row">
-        <div id="accountButton" class="col-sm-12 offset-md-10 col-md-2 btn btn-sm bg-bluesky"
+        <div id="accountButton" class="col-sm-12 offset-md-10 col-md-2 btn btn-md bg-beige"
           onclick="location.href='/account'">
           ACCOUNT
         </div>
