@@ -1,45 +1,36 @@
-<div class="table-responsive-lg" style="font-size: 14px;">
-  <table class="table table-borderless text-left">
-    <thead>
-      <tr>
-        <th colspan="5" id="boardName" class="bg-info mb-2" onclick="window.history.back();">
-          < <%= category %> </th> </tr> </thead> <tbody>
-      <tr>
-        <th scope="column" name="postTitle" colspan="3" style="width: 20%;">
-          <%= data.data.posttitle%>
-        </th>
-        <td scope="column" name="postUser" style="width: 20%;">
-          <%= data.data.postuser%>
-        </td>
-        <td scope="column" name="postDate" style="width: 20%;">
-          <%= data.data.uploadtime%>
-        </td>
-      </tr>
-      <tr>
-        <td scope="column" colspan="5">
-          <pre class="card-text" name="postContent" style="font-size: 15px;"><%- data.data.postcontent %></pre>
-        </td>
-      </tr>
-      </tbody>
-  </table>
-</div>
+<div class="row postBox mb-4">
+  <div class="col-12 mb-1" id="postTitle">
+    <%= data.docdata.posttitle%>
+  </div>
+
+  <div class="col-12 col-md-8 bg-beige">
+    <%= data.docdata.postuser%>
+  </div>
+  <div class="col-12 col-md-4 bg-beige text-truncate">
+    <%= data.docdata.uploadtime%>
+  </div>
 
 
-<% if(data.authorized) { %>
-<div id="userequal">
-  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts/<%= data.data.postnum%>?action=edit_post'"
-    class="btn btn-primary btn-sm float-right">
+  <div class="col-12 " id="postContent">
+    <div class="card">
+      <div class="contentInCard">
+        <%- data.docdata.postcontent %>
+      </div>
+    </div>
+  </div>
+  <% if(data.authorized) { %>
+
+  <div id="editButton" onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>/edit_post'"
+    class="col-12 offset-md-8 col-md-2 btn bg-beige btn-md mt-1">
     Edit
   </div>
   <div id="deleteButton" data-toggle="modal" data-target="#deletemodal"
-    class="btn btn-secondary btn-sm float-right mr-2">
+    class=" col-12 col-md-2 btn bg-darkbeige btn-md mt-1">
     Delete
   </div>
+
+  <% } %>
 </div>
-<% } %>
-
-
-
 <!-- deleteButton modal -->
 <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -59,12 +50,10 @@
           Close
         </button>
         <button type="button" class="btn btn-primary" data-dismiss="modal"
-          onclick="location.href='/boards/<%=category%>/posts/<%= data.data.postnum%>?action=delete'">
+          onclick="location.href='/boards/<%=category%>/posts/<%= data.docdata.postnum%>/delete'">
           Delete
         </button>
       </div>
     </div>
   </div>
 </div>
-<div class="forSpace" style="height: 20px;"></div>
-<div class="forSpace" style="height: 20px;"></div>

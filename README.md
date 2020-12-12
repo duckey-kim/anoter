@@ -1,9 +1,13 @@
 # duck-craft
 
-## Introduction
+유저들이 작성한 짤(밈)등을  저장하고 게시하는 웹페이지
+![duck-craft](duck-craft.PNG)
+![]()
+## 프로젝트 소개
 
-Understanded HTML,CSS and use `Bootstrap` to make webpage ,Using `EJS` template engine to use data from `nodejs` server  
-Using `cookie` for authentication ,Save and load post which is created by user in `firebase-store`
+HTML,CSS을 이해하고 `Bootstrap 4`을 이용하여 웹페이지를 만듬 ,`EJS`템플릿을 이용하였고, `Node.js` 서버를 통해 Google Firebase 의 데이터를 가져온다
+
+`Cookie`을 이용해 사용자 로그인 확인하였고  ,유저가 작성한 글을 Google Firebase의 `Cloud-Firestore`에 저장하였다.
 
 
 ## Prerequisite
@@ -46,22 +50,4 @@ npm init 명령을 이용하여 애플리케이션에 대한 package.json 파일
 
 ```shell script
 npm init
-```
-
-## Installation
-
-NPM을 활용하여 Install한다.
-
-```shell script
-npm install
-```
-
-## Command
-
-### Test
-
-### Run
-
-```shell script
-npm start
 ```

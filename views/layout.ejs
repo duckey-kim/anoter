@@ -7,20 +7,18 @@
 
 <body>
   <header>
-    <%- include ('../components/nav') %>
-    <%- include ('../components/jumbotron') %>
+    <%- include ('../components/nav') %> <%- include
+      ('../components/jumbotron') %>
   </header>
 
   <div class="container">
     <%- body %>
-  </div>
 
-  <footer class="d-flex text-center justify-content-center align-items-end" style="height: 10em;">
     <%- include ('../components/footer') %>
-  </footer>
 
-  <%- include('../components/script') %>
-  <%-defineContent('account')%>
+  </div>
+  <%-
+    include('../components/script')%> <%-defineContent('account')%>
 </body>
 
 </html>
