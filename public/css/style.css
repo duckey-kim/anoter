@@ -1,160 +1,21 @@
-body div {
-  font-size: 14px;
-}
-
 a {
   text-decoration: none !important;
 }
 
-
-img {
-  height: auto;
-  max-width: 750px;
-  min-width: 330px;
-  width: 100%;
+table {
+  table-layout: fixed;
 }
 
-
-.container div {
-  font-family: "NanumSquareRound", sans-serif;
+table th,
+table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+table .card {
+  white-space: normal;
 }
 
-/* navbar css */
-nav {
-  margin-bottom: 3em;
-}
-
-.navbar-brand {
-  padding-top: 0;
-}
-
-#loginUser {
-  margin-top: 0.4em;
-}
-
-/* hover CSS*/
-#boards:hover {
-  background-color: pink;
-  opacity: 0.7;
-}
-
-/* background color CSS */
-.bg-darkpink {
-  background-color: #eb9f9f;
-}
-
-.bg-pink {
-  background-color: #f1bbba;
-}
-
-.bg-beige {
-  background-color: #f8ecc9;
-}
-
-.bg-darkbeige {
-  background-color: #a79c8e;
-}
-
-/* margin & padding CSS */
-.no-mr-pd {
-  margin: 0;
-  padding: 0;
-}
-
-.no-mx-pd {
-  padding: 0;
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.no-pd {
-  padding: 0;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-/* fontsize CSS */
-.fontSizeUp {
-  font-size: 1.1em;
-}
-
-.fontSizeDown {
-  font-size: 0.9em;
-}
-
-.btn {
-  font-size: 1em;
-}
-
-/* footer */
-.fixed-bottom {
-  height: 2em;
-}
-
-/* index.ejs CSS */
-
-.indexBox {
-  padding-left: 0.37em;
-  padding-right: 0.37em;
-}
-
-.indexCategory {
-  font-weight: 700;
-  font-size: 1.2em;
-  padding-left: 1em;
-  padding-right: 1em;
-  color: white;
-}
-
-/* category.ejs CSS */
-
-.categoryBox {
-  padding-left: 0.37em;
-  padding-right: 0.37em;
-}
-
-/* .categoryRow {
-  margin-left: 1em;
-  margin-right: 1em;} */
-
-.category {
-  padding-left: 1em;
-  padding-right: 1em;
-  font-weight: 700;
-  font-size: 1.2em;
-  color: white;
-}
-
-/* post.ejs CSS */
-.postBox {
-  padding-left: 0.37em;
-  padding-right: 0.37em;
-}
-
-#postTitle {
-  font-size: 1.2em;
-  font-weight: 700;
-}
-
-#postContent {
-  padding: 0em;
-}
-
-.contentInCard {
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
-/* edit_post.ejs CSS */
-#editPostform {
-  margin-left: 0.1em;
-  margin-right: 0.1em;
-}
-
-/* new_post.ejs CSS */
-#postform {
-  margin-left: 0.1em;
-  margin-right: 0.1em;
+body {
+  font-size: 14px;
 }
